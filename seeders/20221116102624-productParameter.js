@@ -21,6 +21,8 @@ module.exports = {
                     PetrolTankCapacity: '',
                     maximumCapacity: '',
                     fuelConsumption: '',
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
                 },
             ],
             {},

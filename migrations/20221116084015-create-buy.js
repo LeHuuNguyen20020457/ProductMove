@@ -15,6 +15,21 @@ module.exports = {
             statusProduct: {
                 type: Sequelize.STRING,
             },
+            customerID: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'customers',
+                    key: 'id',
+                },
+            },
+            productID: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'Products',
+                    key: 'id',
+                },
+            },
+
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE,
