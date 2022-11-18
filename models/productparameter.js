@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     }
     productParameter.init(
         {
+            codeProductLine: DataTypes.STRING,
             weight: DataTypes.STRING,
             PetrolTankCapacity: DataTypes.STRING,
             maximumCapacity: DataTypes.STRING,

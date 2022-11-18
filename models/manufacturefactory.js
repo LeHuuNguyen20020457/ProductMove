@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     }
     ManufactureFactory.init(
         {
+            codeCSSX: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
             name: {
                 type: DataTypes.STRING,
                 allowNull: false,

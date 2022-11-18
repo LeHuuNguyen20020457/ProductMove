@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     }
     serviceCenter.init(
         {
+            codeSC: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
             name: {
                 type: DataTypes.STRING,
                 allowNull: false,

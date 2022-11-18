@@ -11,11 +11,15 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
             this.belongsTo(Manager, { foreignKey: 'managerID' });
 
-            this.hasMany(Product, { foreignKey: 'agentID' });
+            this.hasMany(Product, { foreignKey: 'codeAgent' });
         }
     }
     Agent.init(
         {
+            codeAgent: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
             name: {
                 type: DataTypes.STRING,
                 allowNull: false,

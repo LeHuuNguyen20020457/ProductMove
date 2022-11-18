@@ -14,6 +14,7 @@ module.exports = {
          */
         return await queryInterface.bulkInsert('Agents', [
             {
+                codeAgent: 'CA1',
                 name: 'Đại lý honda Cầu giấy',
                 address: 'Mai Dịch, Cầu giấy, Hà Nội',
                 phone: '0943945433',
@@ -23,6 +24,7 @@ module.exports = {
                 updatedAt: new Date(),
             },
             {
+                codeAgent: 'CA2',
                 name: 'Đại lý honda Thủ Đưc',
                 address: 'quận Thủ Đưc,TP HCM',
                 phone: '0943945433',

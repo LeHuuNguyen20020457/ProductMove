@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             this.belongsToMany(Customer, { through: Buy, foreignKey: 'productID', otherKey: 'customerID' });
 
             this.belongsTo(productLine, { foreignKey: 'codeProductLineID' });
-            this.belongsTo(Agent, { foreignKey: 'agentID' });
+            this.belongsTo(Agent, { foreignKey: 'codeAgent' });
         }
     }
     Product.init(

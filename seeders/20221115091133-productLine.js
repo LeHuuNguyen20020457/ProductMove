@@ -17,21 +17,18 @@ module.exports = {
             [
                 {
                     codeProductLine: 'WinnerX150',
-
                     amount: 1000,
                     createdAt: new Date(),
                     updatedAt: new Date(),
                 },
                 {
                     codeProductLine: 'SH125',
-
                     amount: 2000,
                     createdAt: new Date(),
                     updatedAt: new Date(),
                 },
                 {
                     codeProductLine: 'WA110',
-
                     amount: 2000,
                     createdAt: new Date(),
                     updatedAt: new Date(),
