@@ -14,7 +14,6 @@ module.exports = {
          */
         return await queryInterface.bulkInsert('Manufacturefactories', [
             {
-                codeCSSX: 'CSSX1',
                 name: 'Cơ sở sản xuất Honda số 1',
                 address: 'Phúc Thắng, Phúc Yên, Vĩnh Phúc',
                 phone: '0943234233',
@@ -24,7 +23,6 @@ module.exports = {
                 updatedAt: new Date(),
             },
             {
-                codeCSSX: 'CSSX2',
                 name: 'Cơ sở sản xuất Honda số 2',
                 address: 'Đồng Văn, Duy Tiên, Hà Nam',
                 phone: '09435335433',

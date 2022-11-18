@@ -6,10 +6,11 @@ const manager = require('../models/manager');
 module.exports = {
     async up(queryInterface, Sequelize) {
         await queryInterface.createTable('ManufactureFactories', {
-            codeCSSX: {
+            id: {
                 allowNull: false,
                 primaryKey: true,
-                type: Sequelize.STRING,
+                autoIncrement: true,
+                type: Sequelize.INTEGER,
             },
             name: {
                 type: Sequelize.STRING,

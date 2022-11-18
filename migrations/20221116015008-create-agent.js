@@ -3,10 +3,11 @@
 module.exports = {
     async up(queryInterface, Sequelize) {
         await queryInterface.createTable('Agents', {
-            codeAgent: {
+            id: {
                 allowNull: false,
                 primaryKey: true,
-                type: Sequelize.STRING,
+                autoIncrement: true,
+                type: Sequelize.INTEGER,
             },
             name: {
                 type: Sequelize.STRING,

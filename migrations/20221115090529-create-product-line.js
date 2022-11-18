@@ -17,6 +17,20 @@ module.exports = {
             amount: {
                 type: Sequelize.INTEGER,
             },
+            manufactureFactoryID: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'manufacturefactories',
+                    key: 'id',
+                },
+            },
+            warehouseID: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'warehouses',
+                    key: 'id',
+                },
+            },
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE,

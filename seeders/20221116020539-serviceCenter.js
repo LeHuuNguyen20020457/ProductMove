@@ -14,7 +14,6 @@ module.exports = {
          */
         return await queryInterface.bulkInsert('serviceCenters', [
             {
-                codeSC: 'SC1',
                 name: 'Công ty Honda Thắng Lợi',
                 address: '25 Trần Khánh Dư, Hoàn Kiếm, Hà Nội.',
                 phone: '02439342961',
@@ -24,7 +23,6 @@ module.exports = {
                 updatedAt: new Date(),
             },
             {
-                codeSC: 'SC2',
                 name: 'Trung tâm bảo dưỡng đồ chơi & độ xe SH Việt Nam – Scoote',
                 address: 'Số 38 P.Trung Phụng, Phương Liên, Đống Đa, Hà Nội',
                 phone: '090 966 6629',
@@ -34,7 +32,6 @@ module.exports = {
                 updatedAt: new Date(),
             },
             {
-                codeSC: 'SC3',
                 name: 'Trung tâm sửa chữa bảo dưỡng xe máy MOTOTECH',
                 address: '167 Kim Ngưu – Hai Bà Trưng – HN',
                 phone: '02466847601',
@@ -44,7 +41,6 @@ module.exports = {
                 updatedAt: new Date(),
             },
             {
-                codeSC: 'SC4',
                 name: 'Trung tâm bảo dưỡng xe máy Tân Việt Motor',
                 address: '4A Tân Mai, phường Tân Mai, Hoàng Mai Hà Nội',
                 phone: '02436626426',

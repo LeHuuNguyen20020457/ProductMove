@@ -31,11 +31,11 @@ module.exports = {
                     key: 'id',
                 },
             },
-            codeAgent: {
-                type: Sequelize.STRING,
+            AgentID: {
+                type: Sequelize.INTEGER,
                 references: {
                     model: 'agents',
-                    key: 'codeAgent',
+                    key: 'id',
                 },
             },
             createdAt: {
