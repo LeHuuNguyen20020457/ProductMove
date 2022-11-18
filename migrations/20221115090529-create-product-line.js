@@ -11,6 +11,7 @@ module.exports = {
             },
             codeProductLine: {
                 type: Sequelize.STRING,
+                allowNull: false,
             },
 
             amount: {

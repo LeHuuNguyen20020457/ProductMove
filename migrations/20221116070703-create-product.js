@@ -24,6 +24,20 @@ module.exports = {
             description: {
                 type: Sequelize.STRING(1234),
             },
+            codeProductLineID: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'productlines',
+                    key: 'id',
+                },
+            },
+            agentID: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'agents',
+                    key: 'id',
+                },
+            },
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE,
