@@ -12,7 +12,7 @@ module.exports = {
          *   isBetaMember: false
          * }], {});
          */
-        return await queryInterface.bulkInsert('serviceCenters', [
+        return await queryInterface.bulkInsert('WarrantyCenters', [
             {
                 name: 'Công ty Honda Thắng Lợi',
                 address: '25 Trần Khánh Dư, Hoàn Kiếm, Hà Nội.',
@@ -58,6 +58,6 @@ module.exports = {
          * Example:
          * await queryInterface.bulkDelete('People', null, {});
          */
-        return await queryInterface.bulkDelete('serviceCenters', null, {});
+        return await queryInterface.bulkDelete('WarrantyCenters', null, {});
     },
 };
