@@ -12,33 +12,14 @@ module.exports = (sequelize, DataTypes) => {
             this.hasMany(Buy, { foreignKey: 'productID' });
             this.belongsToMany(Customer, { through: Buy, foreignKey: 'productID', otherKey: 'customerID' });
 
-            this.belongsTo(productLine, { foreignKey: 'codeProductLineID' });
+            this.belongsTo(productLine, { foreignKey: 'codeProductLine' });
             this.belongsTo(Agent, { foreignKey: 'AgentID' });
 
             this.hasMany(SendWarranty, { foreignKey: 'productID' });
         }
     }
     Product.init(
-        {
-            nameProduct: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
-            price: {
-                type: DataTypes.STRING,
-                validate: {
-                    isInt: true,
-                    checkPrice(value) {
-                        if (value < 0) {
-                            throw new Error('Nhập đúng giá sản phẩm');
-                        }
-                    },
-                },
-            },
-            avatar: DataTypes.STRING,
-            warrantyPeriod: DataTypes.STRING,
-            description: DataTypes.STRING(1234),
-        },
+        {},
         {
             sequelize,
             modelName: 'Product',

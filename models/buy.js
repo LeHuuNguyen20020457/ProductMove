@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
             statusProduct: {
                 type: DataTypes.STRING,
                 isIn: [['good', 'insurance', 'error']],
+                defaultValue: 'good',
             },
         },
         {

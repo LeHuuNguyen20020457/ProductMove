@@ -10,7 +10,6 @@ class managerController {
     async register(req, res, next) {
         try {
             const { username, password, avatar, phone, email } = req.body;
-            res.json(req.body);
             await Manager.create({
                 username,
                 password,
@@ -37,12 +36,15 @@ class managerController {
                 const token = jwt.sign({ username: username }, process.env.PROCESS_ACCESS_TOKEN, {
                     expiresIn: '900000s',
                 });
-                res.status(200).send({ token: token });
+                res.status(200).send({
+                    message: 'Đăng nhập thành công',
+                    token: token,
+                });
             } else {
                 res.status(404).send('Tài khoản sai');
             }
         } catch (err) {
-            res.status(404).send(err);
+            res.status(500).send(err);
         }
     }
 }

@@ -12,24 +12,27 @@ module.exports = {
          *   isBetaMember: false
          * }], {});
          */
-        return queryInterface.bulkInsert(
-            'Products',
+        await queryInterface.bulkInsert(
+            'manufacturings',
             [
                 {
+                    manufactureFactoryID: 1,
                     codeProductLine: 'WinnerX150',
-                    AgentID: 1,
+                    amount: 150,
                     createdAt: new Date(),
                     updatedAt: new Date(),
                 },
                 {
+                    manufactureFactoryID: 1,
                     codeProductLine: 'SH125',
-                    AgentID: 1,
+                    amount: 250,
                     createdAt: new Date(),
                     updatedAt: new Date(),
                 },
                 {
+                    manufactureFactoryID: 2,
                     codeProductLine: 'WA110',
-                    AgentID: 2,
+                    amount: 300,
                     createdAt: new Date(),
                     updatedAt: new Date(),
                 },
@@ -43,8 +46,8 @@ module.exports = {
          * Add commands to revert seed here.
          *
          * Example:
-         * await queryInterface.bulkDelete('People', null, {});
+         *
          */
-        return await queryInterface.bulkDelete('Products', null, {});
+        return await queryInterface.bulkDelete('manufacturings', null, {});
     },
 };
