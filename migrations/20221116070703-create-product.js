@@ -24,6 +24,10 @@ module.exports = {
                     key: 'id',
                 },
             },
+            deletedAt: {
+                type: Sequelize.DATE,
+                defaultValue: null,
+            },
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE,

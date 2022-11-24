@@ -9,13 +9,14 @@ class managerController {
     //[POST] manager/register
     async register(req, res, next) {
         try {
-            const { username, password, avatar, phone, email } = req.body;
+            const { username, password, avatar, phone, email, role } = req.body;
             await Manager.create({
                 username,
                 password,
                 avatar,
                 phone,
                 email,
+                role,
             });
             res.status(201).send('seccess');
         } catch (err) {

@@ -2,6 +2,7 @@ const { Buy } = require('../models');
 class buyController {
     createBuy(req, res, next) {
         const { productID, id } = req.buy;
+
         Buy.create({
             timeToBuy: new Date(),
             statusProduct: 'good',
@@ -9,7 +10,7 @@ class buyController {
             productID,
         })
             .then((data) => {
-                res.status(200).send('Đã ghi nhận');
+                next();
             })
             .catch((err) => {
                 res.status(500).send(err);

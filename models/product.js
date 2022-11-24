@@ -1,5 +1,6 @@
 'use strict';
 const { Model } = require('sequelize');
+const { Sequelize } = require('.');
 module.exports = (sequelize, DataTypes) => {
     class Product extends Model {
         /**
@@ -19,10 +20,11 @@ module.exports = (sequelize, DataTypes) => {
         }
     }
     Product.init(
-        {},
+        { deletedAt: DataTypes.DATE },
         {
             sequelize,
             modelName: 'Product',
+            paranoid: true,
         },
     );
     return Product;

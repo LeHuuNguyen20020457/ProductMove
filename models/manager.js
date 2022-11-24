@@ -37,6 +37,13 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 isEmail: true,
             },
+            role: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                validate: {
+                    isIn: [['ManufactureFactory', 'Agent', 'warrantyCenter', 'Admin']],
+                },
+            },
         },
         {
             sequelize,

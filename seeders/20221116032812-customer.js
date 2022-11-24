@@ -18,12 +18,14 @@ module.exports = {
                 {
                     name: 'Nguyen',
                     phone: '09347923423',
+                    deletedAt: new Date(),
                     createdAt: new Date(),
                     updatedAt: new Date(),
                 },
                 {
                     name: 'Quan',
                     phone: '09348348334',
+                    deletedAt: new Date(),
                     createdAt: new Date(),
                     updatedAt: new Date(),
                 },

@@ -1,7 +1,7 @@
 const { sequelize, productLine, productParameter } = require('../models');
-const { QueryTypes, NUMBER } = require('sequelize');
+const { QueryTypes } = require('sequelize');
 class productLineController {
-    //[GET] /productLine/productParameter
+    //[GET] /productLine/productParameter?type=
     async productParameter(req, res, next) {
         try {
             const codeProductLine = req.query.type;
@@ -20,23 +20,47 @@ class productLineController {
         }
     }
 
-    //[POST]
-    //tạo ra các dòng sản phẩm vừa sản xuất
+    //[POST] /productLine/createProductLine
 
+    //tạo ra các dòng sản phẩm mới
     createProductLine(req, res, next) {
-        const { nameProductLine, price, avatar, warrantyPeriod, amount, codeProductLine, description } = req.body;
+        const {
+            codeProductLine,
+            nameProductLine,
+            price,
+            avatar,
+            warrantyPeriod,
+            description,
+            weight,
+            PetrolTankCapacity,
+            maximumCapacity,
+            fuelConsumption,
+        } = req.body;
+
         productLine
             .create({
+                codeProductLine,
                 nameProductLine,
                 price,
                 avatar,
                 warrantyPeriod,
-                amount: +amount,
-                codeProductLine,
                 description,
             })
             .then((data) => {
-                res.status(200).send(data);
+                productParameter
+                    .create({
+                        codeProductLine,
+                        weight,
+                        PetrolTankCapacity,
+                        maximumCapacity,
+                        fuelConsumption,
+                    })
+                    .then((data) => {
+                        res.status(201).send('Tạo thành công');
+                    })
+                    .catch((err) => {
+                        res.status(500).send(err);
+                    });
             })
             .catch((err) => {
                 res.status(500).send(err);

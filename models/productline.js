@@ -32,6 +32,8 @@ module.exports = (sequelize, DataTypes) => {
         {
             codeProductLine: {
                 type: DataTypes.STRING,
+                primaryKey: true,
+                allowNull: false,
             },
             nameProductLine: {
                 type: DataTypes.STRING,

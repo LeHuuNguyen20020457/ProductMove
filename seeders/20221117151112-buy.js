@@ -31,14 +31,14 @@ module.exports = {
                     createdAt: new Date(),
                     updatedAt: new Date(),
                 },
-                {
-                    timeToBuy: '2022-11-17 13:36:23',
-                    statusProduct: 'error',
-                    productID: 3,
-                    customerID: 2,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                },
+                // {
+                //     timeToBuy: '2022-11-17 13:36:23',
+                //     statusProduct: 'error',
+                //     productID: 3,
+                //     customerID: 2,
+                //     createdAt: new Date(),
+                //     updatedAt: new Date(),
+                // },
             ],
             {},
         );
