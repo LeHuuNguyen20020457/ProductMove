@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false,
                 unique: false,
                 validate: {
-                    len: [2, 20],
+                    len: [2, 50],
                 },
             },
             address: {
