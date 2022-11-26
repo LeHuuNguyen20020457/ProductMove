@@ -8,7 +8,7 @@ class inventoryController {
 
         // tìm xem dòng sản phẩm này đã có trong kho chưa
         // nếu có rồi thì cập nhật số lượng
-        //  nếu chưa có thì thêm mới vào kho
+        // nếu chưa có thì thêm mới vào kho
         const [inven, created] = await Inventory.findOrCreate({
             where: {
                 warehouseID: warehouseID,
