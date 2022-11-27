@@ -10,6 +10,7 @@ const routerWarrantyCenter = require('./warrantyCenter.js');
 const routerWarehouse = require('./warehouse');
 const routerInventory = require('./inventory');
 const routerProductDelivery = require('./productDelivery');
+const routerAuth = require('./auth');
 
 function router(app) {
     app.use('/manager', routerManager);
@@ -26,5 +27,7 @@ function router(app) {
     app.use('/inventory', routerInventory);
 
     app.use('/productDelivery', routerProductDelivery);
+
+    app.use('/auth', routerAuth);
 }
 module.exports = { router };

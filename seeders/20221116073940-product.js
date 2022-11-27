@@ -18,18 +18,21 @@ module.exports = {
                 {
                     codeProductLine: 'WinnerX150',
                     AgentID: 1,
+                    deletedAt: null,
                     createdAt: new Date(),
                     updatedAt: new Date(),
                 },
                 {
                     codeProductLine: 'SH125',
                     AgentID: 1,
+                    deletedAt: null,
                     createdAt: new Date(),
                     updatedAt: new Date(),
                 },
                 {
                     codeProductLine: 'WA110',
                     AgentID: 2,
+                    deletedAt: null,
                     createdAt: new Date(),
                     updatedAt: new Date(),
                 },

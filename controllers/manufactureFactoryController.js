@@ -61,5 +61,11 @@ class manufactureFactoryController {
                 res.status(500).send('Xoá thất bại');
             });
     }
+
+    // lấy ra các nhà kho của cơ sở sản xuất này
+    //[GET]
+    getWarehouse(req, res, next) {
+        const id = req.id;
+    }
 }
 module.exports = new manufactureFactoryController();

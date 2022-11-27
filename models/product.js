@@ -20,7 +20,12 @@ module.exports = (sequelize, DataTypes) => {
         }
     }
     Product.init(
-        { deletedAt: DataTypes.DATE },
+        {
+            deletedAt: {
+                type: DataTypes.DATE,
+                defaultValue: null,
+            },
+        },
         {
             sequelize,
             modelName: 'Product',
