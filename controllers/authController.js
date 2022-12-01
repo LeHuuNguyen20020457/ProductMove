@@ -37,7 +37,7 @@ class authController {
                     const id = manager.id;
 
                     const accessToken = jwt.sign({ id: id }, process.env.ACCESS_TOKEN_SECRET, {
-                        expiresIn: '9s',
+                        expiresIn: '900000000s',
                     });
                     const refreshToken = jwt.sign({ id: id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '1y' });
 
@@ -74,7 +74,7 @@ class authController {
                 .then((token) => {
                     if (token !== refreshToken) res.status(403).send('Không hợp lệ');
                     const accessToken = jwt.sign({ id: data.id }, process.env.ACCESS_TOKEN_SECRET, {
-                        expiresIn: '9s',
+                        expiresIn: '900000000s',
                     });
                     res.status(201).send({ newAccessToken: accessToken });
                     next();

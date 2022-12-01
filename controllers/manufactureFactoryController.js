@@ -1,5 +1,30 @@
 const { ManufactureFactory } = require('../models');
+
 class manufactureFactoryController {
+    //[GET] /manufactureFactory
+    getAllManufactureFactory(req, res, next) {
+        ManufactureFactory.getAll()
+            .then((MFs) => res.status(200).send(MFs))
+            .catch((err) => res.status(500).send(err));
+    }
+
+    //[GET] /manufactureFactory/:id
+    getManufactureFactory(req, res, next) {
+        const id = req.params.id;
+
+        ManufactureFactory.findOne({
+            where: {
+                id: id,
+            },
+        })
+            .then((MF) => {
+                res.status(200).send(MF);
+            })
+            .catch((err) => {
+                res.status(500).send(err);
+            });
+    }
+
     //[POST] /manufactureFactory/createManufactureFactory
     createManufactureFactory(req, res, next) {
         const { name, address, phone, email, managerID } = req.body;
@@ -64,8 +89,8 @@ class manufactureFactoryController {
 
     // lấy ra các nhà kho của cơ sở sản xuất này
     //[GET]
-    getWarehouse(req, res, next) {
-        const id = req.id;
-    }
+    // getWarehouse(req, res, next) {
+    //     const id = req.id;
+    // }
 }
 module.exports = new manufactureFactoryController();

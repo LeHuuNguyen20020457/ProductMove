@@ -1,5 +1,29 @@
 const { Agent } = require('../models');
 class agentController {
+    //[GET] /agent
+    getAllAgent(req, res, next) {
+        Agent.getAll()
+            .then((agents) => res.status(200).send(agents))
+            .catch((err) => res.status(500).send(err));
+    }
+
+    //[GET] /agent/:id
+    getAgent(req, res, next) {
+        const id = req.params.id;
+
+        Agent.findOne({
+            where: {
+                id: id,
+            },
+        })
+            .then((agent) => {
+                res.status(200).send(agent);
+            })
+            .catch((err) => {
+                res.status(500).send(err);
+            });
+    }
+
     //[POST] /agent/createAgent
     createAgent(req, res, next) {
         const { name, address, phone, email, managerID } = req.body;

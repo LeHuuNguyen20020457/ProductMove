@@ -1,5 +1,31 @@
 const { warrantyCenter } = require('../models');
 class warrantyCenterController {
+    //[GET] /warrantyCenter
+    getAllWarrantyCenter(req, res, next) {
+        warrantyCenter
+            .getAll()
+            .then((warrantyCenters) => res.status(200).send(warrantyCenters))
+            .catch((err) => res.status(500).send(err));
+    }
+
+    //[GET] /warrantyCenter/:id
+    getWarrantyCenter(req, res, next) {
+        const id = req.params.id;
+
+        warrantyCenter
+            .findOne({
+                where: {
+                    id: id,
+                },
+            })
+            .then((WC) => {
+                res.status(200).send(WC);
+            })
+            .catch((err) => {
+                res.status(500).send(err);
+            });
+    }
+
     //[POST] /warrantyCenter/createWarrantyCenter/
     createWarrantyCenter(req, res, next) {
         const { name, address, phone, email, managerID } = req.body;
