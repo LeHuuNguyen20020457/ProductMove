@@ -11,12 +11,15 @@ const routerWarehouse = require('./warehouse');
 const routerInventory = require('./inventory');
 const routerProductDelivery = require('./productDelivery');
 const routerAuth = require('./auth');
+const routerProduct = require('./product');
+const routerSendWarranty = require('./sendWarranty');
 
 function router(app) {
     app.use('/manager', routerManager);
     app.use('/customer/buy', routerCustomer);
     app.use('/productLine', routerProductLine);
     app.use('/productParameter', routerProductParameter);
+    app.use('/product', routerProduct);
     app.use('/manufacturing', routerManufacturing);
 
     app.use('/manufactureFactory', routerManufactureFactory);
@@ -29,5 +32,7 @@ function router(app) {
     app.use('/productDelivery', routerProductDelivery);
 
     app.use('/auth', routerAuth);
+
+    app.use('/sendWarranty', routerSendWarranty);
 }
 module.exports = { router };

@@ -1,4 +1,5 @@
 const { Agent } = require('../models');
+const { Op } = require('sequelize');
 class agentController {
     //[GET] /agent
     getAllAgent(req, res, next) {
@@ -82,6 +83,37 @@ class agentController {
             })
             .catch((err) => {
                 res.status(500).send('Xoá thất bại');
+            });
+    }
+
+    //[GET]
+    getAllProductsSold(req, res, next) {
+        const userId = req.userId;
+
+        Agent.findOne({
+            where: {
+                managerID: userId,
+            },
+        })
+            .then((agent) => {
+                agent
+                    .getProducts({
+                        where: {
+                            deletedAt: {
+                                [Op.ne]: null,
+                            },
+                        },
+                        paranoid: false,
+                    })
+                    .then((data) => {
+                        res.status(200).send(data);
+                    })
+                    .catch((err) => {
+                        res.status(500).send(err);
+                    });
+            })
+            .catch((err) => {
+                res.status(500).send(err);
             });
     }
 }

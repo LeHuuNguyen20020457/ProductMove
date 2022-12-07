@@ -18,7 +18,7 @@ module.exports = {
                 type: Sequelize.STRING,
             },
             warrantyPeriod: {
-                type: Sequelize.STRING,
+                type: Sequelize.INTEGER,
             },
 
             description: {

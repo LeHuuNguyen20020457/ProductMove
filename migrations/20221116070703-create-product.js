@@ -24,6 +24,10 @@ module.exports = {
                     key: 'id',
                 },
             },
+            productStatus: {
+                type: Sequelize.INTEGER,
+                defaultValue: 0,
+            },
             deletedAt: {
                 type: Sequelize.DATE,
                 defaultValue: null,

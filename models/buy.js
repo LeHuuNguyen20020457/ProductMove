@@ -16,15 +16,15 @@ module.exports = (sequelize, DataTypes) => {
     Buy.init(
         {
             timeToBuy: new Date(),
-            statusProduct: {
-                type: DataTypes.STRING,
-                isIn: [['good', 'insurance', 'error']],
-                defaultValue: 'good',
+            deletedAt: {
+                type: DataTypes.DATE,
+                defaultValue: null,
             },
         },
         {
             sequelize,
             modelName: 'Buy',
+            paranoid: true,
         },
     );
     return Buy;

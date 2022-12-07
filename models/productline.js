@@ -52,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
                 },
             },
             avatar: DataTypes.STRING,
-            warrantyPeriod: DataTypes.STRING,
+            warrantyPeriod: DataTypes.INTEGER,
 
             description: DataTypes.STRING(1234),
         },

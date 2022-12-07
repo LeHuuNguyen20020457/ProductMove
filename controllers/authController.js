@@ -2,6 +2,8 @@ const { Manager } = require('../models');
 const { Op } = require('sequelize');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
+const md5 = require('md5');
+const gravatar = require('gravatar');
 const { client } = require('../helpers/connectRedis');
 
 dotenv.config();
@@ -10,10 +12,11 @@ class authController {
     //[POST]/register
     async register(req, res, next) {
         try {
-            const { username, password, avatar, phone, email, role } = req.body;
+            const { username, password, phone, email, role } = req.body;
+            const avatar = gravatar.url(email, { s: '100', r: 'x', d: 'retro' }, true);
             await Manager.create({
                 username,
-                password,
+                password: md5(password),
                 avatar,
                 phone,
                 email,
@@ -28,9 +31,10 @@ class authController {
     login(req, res, next) {
         try {
             const { username, password } = req.body;
+            console.log(md5(password));
             Manager.findOne({
                 where: {
-                    [Op.and]: [{ username: username }, { password: password }],
+                    [Op.and]: [{ username: username }, { password: md5(password) }],
                 },
             }).then((manager) => {
                 if (manager) {
@@ -50,6 +54,10 @@ class authController {
                         accessToken: accessToken,
                         refreshToken: refreshToken,
                     });
+
+                    // res.status(201)
+                    //     .cookie('accessToken', 'Bearer' + accessToken)
+                    //     .cookie('refreshToken', refreshToken);
                 } else {
                     res.status(404).send('Tài khoản sai');
                 }

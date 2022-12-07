@@ -17,20 +17,16 @@ module.exports = (sequelize, DataTypes) => {
     }
     SendWarranty.init(
         {
-            productStatus: {
-                type: DataTypes.INTEGER,
-                validate: {
-                    //0 là đang sữa chữa
-                    //1 là đã sửa chữa xong
-                    //2 là sản phẩm không thể sửa được
-                    isIn: [[0, 1, 2]],
-                },
-            },
             description: DataTypes.STRING,
+            deletedAt: {
+                type: DataTypes.DATE,
+                defaultValue: null,
+            },
         },
         {
             sequelize,
             modelName: 'SendWarranty',
+            paranoid: true,
         },
     );
     return SendWarranty;

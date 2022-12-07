@@ -8,6 +8,7 @@ class manufactureFactoryController {
             .catch((err) => res.status(500).send(err));
     }
 
+    // lấy thông tin của 1 cơ sở sản xuất
     //[GET] /manufactureFactory/:id
     getManufactureFactory(req, res, next) {
         const id = req.params.id;

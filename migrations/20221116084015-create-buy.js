@@ -12,9 +12,7 @@ module.exports = {
             timeToBuy: {
                 type: Sequelize.DATE,
             },
-            statusProduct: {
-                type: Sequelize.STRING,
-            },
+
             customerID: {
                 type: Sequelize.INTEGER,
                 references: {
@@ -28,6 +26,10 @@ module.exports = {
                     model: 'Products',
                     key: 'id',
                 },
+            },
+            deletedAt: {
+                type: Sequelize.DATE,
+                defaultValue: null,
             },
 
             createdAt: {

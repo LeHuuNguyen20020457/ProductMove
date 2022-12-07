@@ -15,7 +15,7 @@ module.exports = {
         return await queryInterface.bulkInsert('Managers', [
             {
                 username: 'Admin',
-                password: '123456',
+                password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
                 email: 'luuly@gmail.com',
@@ -25,7 +25,7 @@ module.exports = {
             },
             {
                 username: 'manufactureFactory1',
-                password: '123456',
+                password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
                 email: 'luuly@gmail.com',
@@ -35,7 +35,7 @@ module.exports = {
             },
             {
                 username: 'manufactureFactory2',
-                password: '123456',
+                password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
                 email: 'tuhao@gmail.com',
@@ -45,7 +45,7 @@ module.exports = {
             },
             {
                 username: 'manufactureFactory3',
-                password: '123456',
+                password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
                 email: 'caocao@gmail.com',
@@ -55,7 +55,7 @@ module.exports = {
             },
             {
                 username: 'agent1',
-                password: '123456',
+                password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
                 email: 'luuly@gmail.com',
@@ -65,7 +65,7 @@ module.exports = {
             },
             {
                 username: 'agent2',
-                password: '123456',
+                password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
                 email: 'luuly@gmail.com',
@@ -75,7 +75,7 @@ module.exports = {
             },
             {
                 username: 'agent3',
-                password: '123456',
+                password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
                 email: 'luuly@gmail.com',
@@ -86,7 +86,7 @@ module.exports = {
 
             {
                 username: 'warrantyCenter1',
-                password: '123456',
+                password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
                 email: 'luuly@gmail.com',
@@ -96,7 +96,7 @@ module.exports = {
             },
             {
                 username: 'warrantyCenter2',
-                password: '123456',
+                password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
                 email: 'luuly@gmail.com',
@@ -106,7 +106,7 @@ module.exports = {
             },
             {
                 username: 'warrantyCenter3',
-                password: '123456',
+                password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
                 email: 'luuly@gmail.com',

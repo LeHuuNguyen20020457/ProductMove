@@ -17,7 +17,6 @@ module.exports = {
             [
                 {
                     timeToBuy: '2022-11-17 13:36:23',
-                    statusProduct: 'good',
                     productID: 1,
                     customerID: 1,
                     createdAt: new Date(),
@@ -25,7 +24,6 @@ module.exports = {
                 },
                 {
                     timeToBuy: '2022-11-17 13:36:23',
-                    statusProduct: 'insurance',
                     productID: 2,
                     customerID: 2,
                     createdAt: new Date(),
@@ -33,7 +31,6 @@ module.exports = {
                 },
                 // {
                 //     timeToBuy: '2022-11-17 13:36:23',
-                //     statusProduct: 'error',
                 //     productID: 3,
                 //     customerID: 2,
                 //     createdAt: new Date(),

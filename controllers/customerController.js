@@ -1,12 +1,13 @@
-const { Customer, Buy, Product } = require('../models');
+const { Customer, Buy, Product, sequelize } = require('../models');
 const { Op } = require('sequelize');
-const { response } = require('express');
+const { QueryTypes } = require('sequelize');
+
 class customerController {
     //[GET] /customer/buy
     // lấy tất cả các sản phẩm mà 1 khách hàng đã mua
     searchProductBought(req, res, next) {
         const numberPhone = req.query.phone;
-        Customer.findAll({
+        Customer.findOne({
             where: {
                 phone: numberPhone,
             },
@@ -25,6 +26,27 @@ class customerController {
             .catch((err) => {
                 res.status(500).send(err);
             });
+    }
+
+    //[GET] /customer/buy/searchProductWarranty
+    //lấy tất cả các sản phẩm mà khách hàng đã mua trong thời gian bảo hành
+    async searchProductWarranty(req, res, next) {
+        //đính lên param
+        const numberPhone = req.query.phone;
+
+        const pro = await sequelize.query(
+            `SELECT C.name, PL.nameProductLine as nameProduct, P.id as productID, B.timeToBuy, ADDDATE( B.timeToBuy, INTERVAL PL.warrantyPeriod*365 DAY) AS expirationIime
+        FROM customers as C 
+        INNER JOIN buys as B ON B.customerID = C.id
+        INNER JOIN products as P ON B.productID = P.id
+        INNER JOIN productlines as PL ON PL.codeProductLine = P.codeProductLine
+        WHERE DATEDIFF(CURDATE(), B.timeToBuy) / 365 < PL.warrantyPeriod
+        AND C.phone = ${numberPhone}
+        AND NOT P.productStatus = 2;
+        `,
+            { type: QueryTypes.SELECT },
+        );
+        res.send(pro);
     }
 
     //[POST] /customer/buy/createCustomer

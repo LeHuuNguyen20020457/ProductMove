@@ -2,7 +2,19 @@ const express = require('express');
 const router = express.Router();
 
 const productLineController = require('../controllers/productLineController');
+
+const { uploadImage } = require('../middlewares/uploadImage');
+
+const { authorization } = require('../middlewares/authorization');
+const { checkManager } = require('../middlewares/checkManager');
+
 router.get('/productParameter', productLineController.productParameter);
-router.post('/createProductLine', productLineController.createProductLine);
+router.post(
+    '/createProductLine',
+    authorization,
+    checkManager(['Admin']),
+    uploadImage('productImage'),
+    productLineController.createProductLine,
+);
 
 module.exports = router;

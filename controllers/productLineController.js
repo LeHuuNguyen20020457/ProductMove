@@ -24,11 +24,13 @@ class productLineController {
 
     //tạo ra các dòng sản phẩm mới
     createProductLine(req, res, next) {
+        const file = req.file;
+        const avatar = `http://localhost:3000/${file.path}`;
+
         const {
             codeProductLine,
             nameProductLine,
             price,
-            avatar,
             warrantyPeriod,
             description,
             weight,

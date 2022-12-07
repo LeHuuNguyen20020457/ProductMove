@@ -5,7 +5,6 @@ class buyController {
 
         Buy.create({
             timeToBuy: new Date(),
-            statusProduct: 'good',
             customerID: id,
             productID,
         })

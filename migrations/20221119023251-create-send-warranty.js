@@ -31,11 +31,12 @@ module.exports = {
                     key: 'id',
                 },
             },
-            productStatus: {
-                type: Sequelize.INTEGER,
-            },
             description: {
                 type: Sequelize.STRING,
+            },
+            deletedAt: {
+                type: Sequelize.DATE,
+                defaultValue: null,
             },
             createdAt: {
                 allowNull: false,

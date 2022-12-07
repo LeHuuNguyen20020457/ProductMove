@@ -1,4 +1,5 @@
 const { warrantyCenter } = require('../models');
+const { Op } = require('sequelize');
 class warrantyCenterController {
     //[GET] /warrantyCenter
     getAllWarrantyCenter(req, res, next) {
@@ -11,7 +12,6 @@ class warrantyCenterController {
     //[GET] /warrantyCenter/:id
     getWarrantyCenter(req, res, next) {
         const id = req.params.id;
-
         warrantyCenter
             .findOne({
                 where: {
@@ -86,6 +86,38 @@ class warrantyCenterController {
             })
             .catch((err) => {
                 res.status(500).send('Xoá thất bại');
+            });
+    }
+
+    //lấy ra những sản phẩm mà trung tâm bảo hành đã sửa chữa
+    //[GET] warrantyCenter/repaired
+    getAllProductsRepaired(req, res, next) {
+        const userId = req.userId;
+
+        warrantyCenter
+            .findOne({
+                where: {
+                    managerID: userId,
+                },
+            })
+            .then((WC) => {
+                WC.getSendWarranties({
+                    where: {
+                        deletedAt: {
+                            [Op.ne]: null,
+                        },
+                    },
+                    paranoid: false,
+                })
+                    .then((data) => {
+                        res.status(200).send(data);
+                    })
+                    .catch((err) => {
+                        res.status(500).send(err);
+                    });
+            })
+            .catch((err) => {
+                res.status(500).send(err);
             });
     }
 }

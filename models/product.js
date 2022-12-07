@@ -21,6 +21,16 @@ module.exports = (sequelize, DataTypes) => {
     }
     Product.init(
         {
+            productStatus: {
+                type: DataTypes.INTEGER,
+                validate: {
+                    //0 là tốt
+                    //1 là đang sửa chữa
+                    //2 là không thể sửa
+                    isIn: [[0, 1, 2]],
+                },
+                defaultValue: 0,
+            },
             deletedAt: {
                 type: DataTypes.DATE,
                 defaultValue: null,
