@@ -3,8 +3,8 @@ const { Op } = require('sequelize');
 class agentController {
     //[GET] /agent
     getAllAgent(req, res, next) {
-        Agent.getAll()
-            .then((agents) => res.status(200).send(agents))
+        Agent.findAll({})
+            .then((agents) => res.status(200).json(agents))
             .catch((err) => res.status(500).send(err));
     }
 
@@ -18,7 +18,7 @@ class agentController {
             },
         })
             .then((agent) => {
-                res.status(200).send(agent);
+                res.status(200).json(agents);
             })
             .catch((err) => {
                 res.status(500).send(err);
