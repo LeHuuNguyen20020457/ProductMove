@@ -12,7 +12,9 @@ app.use(express.urlencoded());
 
 const publicPathDirectory = path.join(__dirname, './public');
 app.use('/public', express.static(publicPathDirectory));
-
+app.get('/test', function (req, res) {
+    res.json('hiii');
+});
 router(app);
 
 app.listen(port, () => {
