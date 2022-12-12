@@ -1,0 +1,19 @@
+.detail_productLine {
+  flex: 1;
+  margin-top: 50px; }
+  .detail_productLine .detail_productLine--introduce .product--description {
+    display: flex; }
+    .detail_productLine .detail_productLine--introduce .product--description p {
+      margin-top: 20px;
+      margin-right: 50px;
+      text-align: justify; }
+  .detail_productLine .detail_productLine--introduce .product--price-bh {
+    width: 500px;
+    background-color: #f3f3f3; }
+    .detail_productLine .detail_productLine--introduce .product--price-bh h2 {
+      display: inline-block;
+      margin-left: 20px;
+      color: red; }
+    .detail_productLine .detail_productLine--introduce .product--price-bh div, .detail_productLine .detail_productLine--introduce .product--price-bh p {
+      margin-left: 20px;
+      padding: 10px 0; }

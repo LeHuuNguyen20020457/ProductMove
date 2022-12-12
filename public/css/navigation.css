@@ -1,0 +1,24 @@
+#nav {
+  width: 200px;
+  height: calc(100vh - 66px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  #nav .menu div {
+    width: 100%;
+    border-radius: 10px;
+    padding: 15px;
+    margin-left: 20px;
+    cursor: pointer; }
+    #nav .menu div a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 14px; }
+      #nav .menu div a svg,
+      #nav .menu div a i {
+        margin-left: -10px;
+        margin-right: 10px; }
+    #nav .menu div:hover {
+      background-color: rgba(0, 0, 0, 0.1); }

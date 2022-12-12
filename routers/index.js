@@ -18,6 +18,7 @@ function router(app) {
     app.use('/manager', routerManager);
     app.use('/customer/buy', routerCustomer);
     app.use('/productLine', routerProductLine);
+    
     app.use('/productParameter', routerProductParameter);
     app.use('/product', routerProduct);
     app.use('/manufacturing', routerManufacturing);
@@ -34,5 +35,7 @@ function router(app) {
     app.use('/auth', routerAuth);
 
     app.use('/sendWarranty', routerSendWarranty);
+
+    app.use('/', routerProductLine);
 }
 module.exports = { router };

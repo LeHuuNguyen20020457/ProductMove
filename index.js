@@ -1,5 +1,7 @@
+const { resolveSoa } = require('dns');
 const express = require('express');
 const path = require('path');
+const handlebars = require('express-handlebars').engine;
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -10,11 +12,21 @@ const { router } = require('./routers');
 app.use(express.json());
 app.use(express.urlencoded());
 
+app.engine(
+    'hbs',
+    handlebars({
+        extname: '.hbs',
+        helpers: require('./helpers/handlebars'),
+    }),
+);
+
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'resources', 'views'));
+
 const publicPathDirectory = path.join(__dirname, './public');
 app.use('/public', express.static(publicPathDirectory));
-app.get('/test', function (req, res) {
-    res.json('hiii');
-});
+
+
 router(app);
 
 app.listen(port, () => {

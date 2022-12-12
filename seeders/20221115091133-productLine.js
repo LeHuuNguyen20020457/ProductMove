@@ -44,7 +44,7 @@ module.exports = {
                     codeProductLine: 'WA110',
                     nameProductLine: 'Wave Alpha 110cc',
                     price: '17.859.273',
-                    avatar: 'https://cdn.honda.com.vn/motorbikes/August2022/tJv8IkxW4hKAUNngDX5v.png',
+                    avatar: 'https://cdn.honda.com.vn/motorbikes/November2022/46saHiwobvOBrrwwWMXj.png',
                     warrantyPeriod: 1,
                     description:
                         'Wave Alpha phiên bản 2023 trẻ trung và năng động với màu đen mờ hoàn toàn mới cùng thiết kế bộ tem mới ấn tượng, thu hút ánh nhìn, cho bạn tự tin thể hiện cá tính của mình trên mọi hành trình.',

@@ -1,0 +1,25 @@
+#footer {
+    display: flex;
+    background-color: #e5d5d5;
+    // justify-content: space-around;
+    padding: 50px 0;
+    div:first-child {
+        margin-left: 250px;
+        p{
+            font-size: 12px;
+            opacity: 0.9;
+            line-height: 1.5;
+            padding-top: 10px;
+        }
+    }
+    div:last-child {
+        margin-left: 100px;
+        p {
+            padding-top: 10px;
+            font-weight:500;
+        }
+    }
+}
+
+
+

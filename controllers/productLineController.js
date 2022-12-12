@@ -1,6 +1,9 @@
 const { sequelize, productLine, productParameter } = require('../models');
+const {mutipleSequelizeToObject} = require('../util/sequelize')
 const { QueryTypes } = require('sequelize');
 class productLineController {
+
+
     //[GET] /productLine/productParameter?type=
     async productParameter(req, res, next) {
         try {
@@ -18,6 +21,21 @@ class productLineController {
         } catch (err) {
             res.status(500).send(err);
         }
+    }
+
+
+    //[GET] trang home
+    getAllProductLine(req, res, next) {
+        productLine.findAll({
+            raw: true,
+        })
+        .then((productlines) => {
+            // res.status(200).send(productlines)
+            res.render('home.hbs', {productlines})
+        })
+        .catch((err) => {
+            res.status(500).send(err)
+        })
     }
 
     //[POST] /productLine/createProductLine

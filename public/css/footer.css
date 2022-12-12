@@ -1,0 +1,16 @@
+#footer {
+  display: flex;
+  background-color: #e5d5d5;
+  padding: 50px 0; }
+  #footer div:first-child {
+    margin-left: 250px; }
+    #footer div:first-child p {
+      font-size: 12px;
+      opacity: 0.9;
+      line-height: 1.5;
+      padding-top: 10px; }
+  #footer div:last-child {
+    margin-left: 100px; }
+    #footer div:last-child p {
+      padding-top: 10px;
+      font-weight: 500; }
