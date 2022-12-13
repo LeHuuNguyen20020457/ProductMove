@@ -1,6 +1,7 @@
 const { sequelize, productLine, productParameter } = require('../models');
 const {mutipleSequelizeToObject} = require('../util/sequelize')
 const { QueryTypes } = require('sequelize');
+
 class productLineController {
 
 
@@ -10,14 +11,17 @@ class productLineController {
             const codeProductLine = req.query.type;
 
             const data = await sequelize.query(
-                `SELECT A.nameProductLine, B.weight, B.PetrolTankCapacity, B.maximumCapacity, B.fuelConsumption
+                `SELECT A.nameProductLine, A.warrantyPeriod, A.avatar, A.price, B.weight, B.PetrolTankCapacity, B.maximumCapacity, B.fuelConsumption
         FROM productlines as A
         INNER JOIN productparameters as B
         ON A.codeProductLine = B.codeProductLine
         WHERE A.codeProductLine = '${codeProductLine}';`,
-                { type: QueryTypes.SELECT },
+                { type: QueryTypes.SELECT,
+                raw: true,
+               },
             );
-            res.status(200).send(data);
+            // res.status(200).send(data)
+            res.render('product/detailProductLine', {productLine: data[0]})
         } catch (err) {
             res.status(500).send(err);
         }

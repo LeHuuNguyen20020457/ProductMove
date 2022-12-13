@@ -3,13 +3,17 @@
   margin-top: 50px; }
   .detail_productLine .detail_productLine--introduce .product--description {
     display: flex; }
+    .detail_productLine .detail_productLine--introduce .product--description img {
+      width: 500px;
+      height: 400px; }
     .detail_productLine .detail_productLine--introduce .product--description p {
       margin-top: 20px;
       margin-right: 50px;
       text-align: justify; }
   .detail_productLine .detail_productLine--introduce .product--price-bh {
     width: 500px;
-    background-color: #f3f3f3; }
+    background-color: #f3f3f3;
+    margin-left: 50px; }
     .detail_productLine .detail_productLine--introduce .product--price-bh h2 {
       display: inline-block;
       margin-left: 20px;
@@ -17,3 +21,32 @@
     .detail_productLine .detail_productLine--introduce .product--price-bh div, .detail_productLine .detail_productLine--introduce .product--price-bh p {
       margin-left: 20px;
       padding: 10px 0; }
+  .detail_productLine .product__parameter {
+    width: 80%;
+    margin-top: 50px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column; }
+    .detail_productLine .product__parameter > p {
+      font-size: 24px;
+      font-weight: 700; }
+    .detail_productLine .product__parameter .product__parameter--list {
+      background-color: rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+      border-top: 2px solid red;
+      padding-bottom: 20px;
+      padding-right: 20px; }
+      .detail_productLine .product__parameter .product__parameter--list > div {
+        margin-left: 30px;
+        display: flex;
+        flex-direction: column; }
+        .detail_productLine .product__parameter .product__parameter--list > div > div:nth-child(even) {
+          background-color: #fff; }
+      .detail_productLine .product__parameter .product__parameter--list .product__parameter--item {
+        display: flex; }
+        .detail_productLine .product__parameter .product__parameter--list .product__parameter--item div:nth-child(1) {
+          width: 500px;
+          padding: 30px 0; }
+        .detail_productLine .product__parameter .product__parameter--list .product__parameter--item div:nth-child(2) {
+          width: 500px;
+          padding: 30px 0; }
