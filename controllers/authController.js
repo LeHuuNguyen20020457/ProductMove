@@ -28,6 +28,12 @@ class authController {
         }
     }
 
+    //[GET]
+    loginApp(req, res, next) {
+        res.render('auth/login')
+    }
+
+    //[POST]
     login(req, res, next) {
         try {
             const { username, password } = req.body;
@@ -40,6 +46,7 @@ class authController {
                 if (manager) {
                     const id = manager.id;
 
+                    
                     const accessToken = jwt.sign({ id: id }, process.env.ACCESS_TOKEN_SECRET, {
                         expiresIn: '900000000s',
                     });
@@ -49,15 +56,18 @@ class authController {
                         EX: 365 * 24 * 60 * 60 * 100,
                     });
 
-                    res.status(200).send({
-                        message: 'Đăng nhập thành công',
-                        accessToken: accessToken,
-                        refreshToken: refreshToken,
-                    });
+                    // res.status(200).send({
+                    //     message: 'Đăng nhập thành công',
+                    //     accessToken: accessToken,
+                    //     refreshToken: refreshToken,
+                    // });
 
-                    // res.status(201)
-                    //     .cookie('accessToken', 'Bearer' + accessToken)
-                    //     .cookie('refreshToken', refreshToken);
+
+                    res.status(201)
+                        .cookie('accessToken', 'Bearer ' + accessToken)
+                        .cookie('refreshToken', refreshToken);
+
+
                 } else {
                     res.status(404).send('Tài khoản sai');
                 }
@@ -69,7 +79,7 @@ class authController {
 
     //[POST]
     refreshToken(req, res, next) {
-        const refreshToken = req.body.token;
+        const refreshToken = req.cookies.refreshToken;
         if (!refreshToken) res.status(401).send('Không tìm thấy token');
 
         jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, data) => {
@@ -84,7 +94,8 @@ class authController {
                     const accessToken = jwt.sign({ id: data.id }, process.env.ACCESS_TOKEN_SECRET, {
                         expiresIn: '900000000s',
                     });
-                    res.status(201).send({ newAccessToken: accessToken });
+                    res.status(201)
+                        .cookie('accessToken', 'Bearer ' + accessToken)
                     next();
                 })
                 .catch((err) => {
@@ -95,7 +106,7 @@ class authController {
 
     //[POST]
     logout(req, res, next) {
-        const refreshToken = req.body.token;
+        const refreshToken = req.cookies.refreshToken;
 
         if (!refreshToken) res.status(401).send('Không tìm thấy token');
 
@@ -103,9 +114,13 @@ class authController {
             const id = data.id;
             client
                 .del(id.toString())
-                .then((tok) => res.status(200).send('Đã đăng xuất thành công'))
+                .then((tok) => {})
                 .catch((err) => res.status(500).send(err));
         });
+
+        res.clearCookie('accessToken')
+        res.clearCookie('refreshToken')
+
     }
 }
 

@@ -21,7 +21,7 @@ class productLineController {
                },
             );
             // res.status(200).send(data)
-            res.render('product/detailProductLine', {productLine: data[0]})
+            res.render('product/detailProductLine', {productLine: data[0], isShow: true})
         } catch (err) {
             res.status(500).send(err);
         }
@@ -35,7 +35,7 @@ class productLineController {
         })
         .then((productlines) => {
             // res.status(200).send(productlines)
-            res.render('home.hbs', {productlines})
+            res.render('home.hbs', {productlines,  isShow: true})
         })
         .catch((err) => {
             res.status(500).send(err)

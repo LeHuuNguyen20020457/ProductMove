@@ -4,8 +4,11 @@ class warrantyCenterController {
     //[GET] /warrantyCenter
     getAllWarrantyCenter(req, res, next) {
         warrantyCenter
-            .getAll()
-            .then((warrantyCenters) => res.status(200).send(warrantyCenters))
+            .findAll({raw: true})
+            .then((warrantyCenters) => 
+            res.render('parts', {warrantyCenters: warrantyCenters, isShow: true})
+            // res.status(200).send(warrantyCenters)
+            )
             .catch((err) => res.status(500).send(err));
     }
 

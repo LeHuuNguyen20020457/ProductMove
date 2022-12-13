@@ -13,6 +13,7 @@ const routerProductDelivery = require('./productDelivery');
 const routerAuth = require('./auth');
 const routerProduct = require('./product');
 const routerSendWarranty = require('./sendWarranty');
+const routerParts = require('./parts');
 
 function router(app) {
     app.use('/manager', routerManager);
@@ -35,6 +36,8 @@ function router(app) {
     app.use('/auth', routerAuth);
 
     app.use('/sendWarranty', routerSendWarranty);
+
+    app.use('/parts', routerParts);
 
     app.use('/', routerProductLine);
 }

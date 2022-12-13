@@ -13,18 +13,24 @@
     <link rel="stylesheet" href="/public/css/home.css">
     <link rel="stylesheet" href="/public/css/footer.css">
     <link rel="stylesheet" href="/public/css/detailProductLine.css">
+    <link rel="stylesheet" href="/public/css/parts.css">
+    <link rel="stylesheet" href="/public/css/login.css">
 <body>
-    <div class="app">
+    <div class="ctapp">
         
-    
+    {{#if (show isShow)}}
     {{> header}}
-
+    {{/if}}
     <div class="container">
+    {{#if (show isShow)}}
     {{> navigartion }}
+    {{/if}}
     {{{body}}}
     </div>
 
+    {{#if (show isShow)}}
     {{> footer}}
+    {{/if}}
 
   
     </div>

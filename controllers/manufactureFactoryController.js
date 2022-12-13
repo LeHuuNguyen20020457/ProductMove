@@ -3,8 +3,11 @@ const { ManufactureFactory } = require('../models');
 class manufactureFactoryController {
     //[GET] /manufactureFactory
     getAllManufactureFactory(req, res, next) {
-        ManufactureFactory.getAll()
-            .then((MFs) => res.status(200).send(MFs))
+        ManufactureFactory.findAll({raw: true,})
+            .then((MFs) =>
+            // res.status(200).send(MFs)
+            res.render('parts', {MFs: MFs , isShow: true})
+             )
             .catch((err) => res.status(500).send(err));
     }
 

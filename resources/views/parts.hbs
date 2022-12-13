@@ -1,0 +1,30 @@
+<div class="parts">
+    <p>Danh sách các bộ phận</p>
+    <div class = "parts--btn">
+        <button><a href="/parts/all">Tất cả</a></button>
+        <button><a href="/manufactureFactory">Cơ sở sản xuất</a></button>
+        <button><a href="/agent">Đại lý</a></button>
+        <button><a href="/warrantyCenter">Trung tâm bảo hành</a></button>
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên cơ sở</th>
+                    <th>Địa chỉ</th>
+                    <th>Số điện thoại</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{{checkParts partsAll MFs agents warrantyCenters}}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    
+</script>

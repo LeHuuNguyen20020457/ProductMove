@@ -1,4 +1,5 @@
 const { resolveSoa } = require('dns');
+const cookieParser = require('cookie-parser')
 const express = require('express');
 const path = require('path');
 const handlebars = require('express-handlebars').engine;
@@ -11,6 +12,9 @@ const { router } = require('./routers');
 
 app.use(express.json());
 app.use(express.urlencoded());
+
+
+app.use(cookieParser())
 
 app.engine(
     'hbs',

@@ -3,8 +3,11 @@ const { Op } = require('sequelize');
 class agentController {
     //[GET] /agent
     getAllAgent(req, res, next) {
-        Agent.findAll({})
-            .then((agents) => res.status(200).json(agents))
+        Agent.findAll({raw: true})
+            .then((agents) =>
+                res.render('parts', {agents: agents, isShow: true})
+            //  res.status(200).json(agents)
+            )
             .catch((err) => res.status(500).send(err));
     }
 

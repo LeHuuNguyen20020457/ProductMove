@@ -1,0 +1,39 @@
+.parts {
+  flex: 1;
+  margin-left: 50px;
+  margin-top: 50px; }
+  .parts p {
+    margin-bottom: 20px;
+    color: red;
+    font-size: 20px;
+    font-weight: 700; }
+  .parts button {
+    padding: 5px 10px;
+    min-width: 150px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2); }
+    .parts button:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+      cursor: pointer; }
+    .parts button a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #333;
+      display: inline-block;
+      width: 100%; }
+  .parts div:nth-child(3) {
+    margin-top: 50px;
+    width: 95%; }
+    .parts div:nth-child(3) table {
+      border-collapse: collapse; }
+    .parts div:nth-child(3) tr > th {
+      background-color: rgba(92, 208, 240, 0.7);
+      padding: 5px 50px; }
+    .parts div:nth-child(3) tr > td {
+      padding: 15px 50px; }
+    .parts div:nth-child(3) tr:nth-child(even) {
+      background-color: rgba(206, 197, 186, 0.7); }
+
+.clickBtn {
+  background-color: rgba(0, 0, 0, 0.2) !important; }

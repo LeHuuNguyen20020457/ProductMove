@@ -1,9 +1,11 @@
 const jwt = require('jsonwebtoken');
 
 function authorization(req, res, next) {
-    if (!req.headers['authorization']) res.status(403).send('ERROR');
+    // if (!req.headers['authorization']) res.status(403).send('ERROR');
 
-    const authHeader = req.headers['authorization'];
+    // const authHeader = req.headers['authorization'];
+
+    const authHeader = req.cookies.accessToken
 
     const bearerToken = authHeader.split(' ');
     const token = bearerToken[1];
