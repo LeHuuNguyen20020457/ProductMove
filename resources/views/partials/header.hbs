@@ -6,6 +6,7 @@
                 alt='Logo Honda'
             />
         </div>
+
         <div class='header__search'>
             <input type='text' placeholder='Tìm kiếm sản phẩm' />
             <div class='logo_search'>
@@ -17,8 +18,29 @@
                 <i class='fa-solid fa-bell'></i>
             </div>
             <div class='avatar'>
-                <img src='https://i.pinimg.com/236x/a0/95/ab/a095abeca82e0a5b04e4f121d166bafe.jpg' alt='avatars' />
+                <img class="avatar-img" src='{{user.avatar}}' alt='avatars' />
+                <div class="block-nav">
+                    <div class="navBarAvatar">
+                        <div class="thongtin">
+                            <img src='{{user.avatar}}' alt='avatars' />
+                            <h4>{{user.username}}</h4>
+                        </div>
+                        <div >
+                            <a href="">viết blog</a>
+                            <a href="">Cài đặt</a>
+                            <a href="/auth/logout">Đăng xuất</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const avatar = $('.avatar')
+        avatar.click(function(){
+            $('.block-nav').toggle()
+        })
+    })
+</script>

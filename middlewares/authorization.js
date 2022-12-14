@@ -7,14 +7,14 @@ function authorization(req, res, next) {
 
     const authHeader = req.cookies.accessToken
 
+    if(!authHeader) res.redirect('/auth');
     const bearerToken = authHeader.split(' ');
     const token = bearerToken[1];
 
-    if (!token) res.status(401).send('ERROR');
+    if (!token)  res.redirect('/auth');
 
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, data) => {
-        if (err) res.status(401).send('Unauthorized');
-
+        if(err) res.redirect('/auth')
         req.userId = data.id;
         next();
     });

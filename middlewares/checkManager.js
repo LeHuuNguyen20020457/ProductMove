@@ -8,9 +8,11 @@ const checkManager = (arrType) => (req, res, next) => {
         where: {
             id: userId,
         },
+        raw: true,
     })
         .then((manager) => {
             if (arrType.includes(manager.role)) {
+                res.locals.user = manager
                 next();
             } else {
                 res.status(403).send('Bạn không có quyền truy cập');

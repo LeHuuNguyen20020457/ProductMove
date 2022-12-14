@@ -1,5 +1,5 @@
 const { Manager } = require('../models');
-const { Op } = require('sequelize');
+const { Op, json } = require('sequelize');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 const md5 = require('md5');
@@ -37,7 +37,6 @@ class authController {
     login(req, res, next) {
         try {
             const { username, password } = req.body;
-            console.log(md5(password));
             Manager.findOne({
                 where: {
                     [Op.and]: [{ username: username }, { password: md5(password) }],
@@ -45,8 +44,6 @@ class authController {
             }).then((manager) => {
                 if (manager) {
                     const id = manager.id;
-
-                    
                     const accessToken = jwt.sign({ id: id }, process.env.ACCESS_TOKEN_SECRET, {
                         expiresIn: '900000000s',
                     });
@@ -63,11 +60,11 @@ class authController {
                     // });
 
 
+                    console.log(accessToken, refreshToken)
                     res.status(201)
-                        .cookie('accessToken', 'Bearer ' + accessToken)
-                        .cookie('refreshToken', refreshToken);
-
-
+                    .cookie('accessToken', 'Bearer ' + accessToken)
+                    .cookie('refreshToken', refreshToken)
+                    res.redirect('/')
                 } else {
                     res.status(404).send('Tài khoản sai');
                 }
@@ -104,7 +101,7 @@ class authController {
         });
     }
 
-    //[POST]
+    //[GET]
     logout(req, res, next) {
         const refreshToken = req.cookies.refreshToken;
 
@@ -120,7 +117,8 @@ class authController {
 
         res.clearCookie('accessToken')
         res.clearCookie('refreshToken')
-
+        
+        res.redirect('/auth')
     }
 }
 

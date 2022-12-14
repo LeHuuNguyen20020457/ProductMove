@@ -9,7 +9,7 @@ const { authorization } = require('../middlewares/authorization');
 const { checkManager } = require('../middlewares/checkManager');
 
 router.get('/productParameter', productLineController.productParameter);
-router.get('/', productLineController.getAllProductLine);
+router.get('/', authorization, checkManager(['Admin', 'Agent', 'ManufactureFactory', 'warrantyCenter']),   productLineController.getAllProductLine);
 router.post(
     '/createProductLine',
     authorization,

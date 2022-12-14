@@ -44,3 +44,33 @@
     height: 50px;
     width: auto;
     vertical-align: middle; }
+  #header .avatar {
+    position: relative; }
+    #header .avatar .block-nav {
+      position: absolute;
+      right: 0px;
+      top: 70px;
+      width: 200px;
+      height: 230px;
+      background-color: #f3f3f3;
+      border-radius: 10px;
+      box-shadow: 2px 2px 5px 5px #888888;
+      display: none; }
+  #header .navBarAvatar {
+    width: 150px;
+    margin-left: 20px; }
+    #header .navBarAvatar .thongtin {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #333;
+      display: flex; }
+      #header .navBarAvatar .thongtin img {
+        margin-left: 0px; }
+      #header .navBarAvatar .thongtin h4 {
+        margin-left: 20px; }
+    #header .navBarAvatar a {
+      width: 200;
+      text-decoration: none;
+      color: #333;
+      display: block;
+      padding: 10px 10px; }
