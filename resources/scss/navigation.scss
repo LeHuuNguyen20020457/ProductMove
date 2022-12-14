@@ -33,3 +33,16 @@
         }
     }
 }
+
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+    #nav{
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 739px) {
+    #nav{
+        display: none;
+    }
+}

@@ -4,7 +4,7 @@
     flex: 1;
 }
 .slider {
-    width: 96%; //có thể sửa lại thành 100%
+    width: 90%; //có thể sửa lại thành 100%
     height: $height-slider;
     margin-left: 50px;
     overflow: hidden;
@@ -22,7 +22,7 @@
 }
 
 .slides img {
-    width: 95%;
+    width: 100%;
     height: $height-slider;
     border-radius: 10px;
     background-size: contain;

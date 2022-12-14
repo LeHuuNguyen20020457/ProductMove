@@ -2,7 +2,7 @@
   flex: 1; }
 
 .slider {
-  width: 96%;
+  width: 90%;
   height: 300px;
   margin-left: 50px;
   overflow: hidden;
@@ -18,7 +18,7 @@
   width: 25%; }
 
 .slides img {
-  width: 95%;
+  width: 100%;
   height: 300px;
   border-radius: 10px;
   background-size: contain; }

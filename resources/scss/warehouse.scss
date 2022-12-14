@@ -1,0 +1,44 @@
+.warehouse{
+    flex: 1;
+    width: 100%;
+    margin: {
+        left: 50px;
+        top: 50px;
+    };
+    p{
+        margin-bottom: 20px;
+        color: red;
+        font-size: 20px;
+        font-weight: 700;
+    }
+    div {
+        margin-top: 50px;
+        width: 100%;
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+        tr > th{
+            background-color: rgba(92, 208, 240, 0.7);
+            padding: 10px 50px;
+        }
+        tr > td {
+            padding: 15px 50px;
+        }
+        tr:nth-child(even) {
+            background-color: rgba(206, 197, 186, 0.7);
+        }
+    }
+    tr td a{
+        display: inline-block;
+        text-decoration: none;
+        font-size: 14px;
+        color: black;
+        border: 1px solid #333;
+        font-weight: 500;
+        margin-left: 10px;
+        padding: 4px;
+        background-color: rgb(12, 246, 168);
+        cursor: pointer;
+    }
+}

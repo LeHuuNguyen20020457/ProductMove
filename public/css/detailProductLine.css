@@ -50,3 +50,24 @@
         .detail_productLine .product__parameter .product__parameter--list .product__parameter--item div:nth-child(2) {
           width: 500px;
           padding: 30px 0; }
+
+@media only screen and (max-width: 1023px) {
+  .detail_productLine {
+    max-width: 1023px;
+    width: 100%; }
+    .detail_productLine .product--description > div {
+      display: none; }
+    .detail_productLine .product--price-bh {
+      margin-left: 100px; } }
+
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+  .detail_productLine .product--description img {
+    margin-left: 100px; }
+  .detail_productLine .product--description .product__parameter {
+    width: 90%; } }
+
+@media only screen and (max-width: 739px) {
+  .detail_productLine .product--description img {
+    margin-left: 20px; }
+  .detail_productLine .product__parameter {
+    width: 80%; } }

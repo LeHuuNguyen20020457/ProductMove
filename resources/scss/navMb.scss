@@ -1,0 +1,44 @@
+
+
+   
+    .nav__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: none;
+    }
+    .nav__mobile{
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 3;
+        width: 320px;
+        max-width: 100%;
+        background-color: #fff;
+        transform: translateX(-100%);
+        
+    }
+    .nav__mobile-close{
+        font-size: 20px;
+        color: #666;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+@keyframes navBar_mobile_show {
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes navBar_mobile_hidden {
+    to{
+        transform: translateX(-100%);
+    }
+}

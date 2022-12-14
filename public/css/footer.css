@@ -14,3 +14,18 @@
     #footer div:last-child p {
       padding-top: 10px;
       font-weight: 500; }
+
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+  #footer {
+    margin-left: -150px; } }
+
+@media only screen and (max-width: 739px) {
+  #footer {
+    flex-direction: column; }
+    #footer div:first-child {
+      margin-left: 0px;
+      text-align: center; }
+    #footer div:last-child {
+      margin-top: 50px;
+      margin-left: 0px;
+      text-align: center; } }

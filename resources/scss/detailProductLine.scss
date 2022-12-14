@@ -1,7 +1,6 @@
 .detail_productLine {
     flex: 1;
     margin-top: 50px;
-    
     .detail_productLine--introduce{
         .product--description{
             display: flex;
@@ -77,4 +76,49 @@
         }
     }
     
+}
+
+@media only screen and (max-width: 1023px) {
+    .detail_productLine {
+        max-width: 1023px;
+        width: 100%;
+        .product--description{
+            >div{
+                display: none;
+            }
+            
+        }
+        .product--price-bh{
+            margin-left: 100px;
+        }
+        
+    }
+
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+   .detail_productLine{
+    .product--description{
+        img{
+            margin-left: 100px;
+        }
+        .product__parameter{
+            width: 90%;
+        }
+    }
+   }
+
+}
+
+@media only screen and (max-width: 739px) {
+    .detail_productLine{
+        .product--description{
+            img{
+                margin-left: 20px;
+            }
+        }
+        .product__parameter{
+            width: 80%;
+        }
+       }
 }

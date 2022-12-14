@@ -21,5 +21,33 @@
     }
 }
 
+//chung
+@media only screen and (max-width: 1023px) {
+    
+}
 
+//tablet
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+
+    #footer{
+        margin-left: -150px;
+    }
+}
+
+
+//mobile
+@media only screen and (max-width: 739px) {
+    #footer{
+        flex-direction: column;
+        div:first-child{
+            margin-left: 0px;
+            text-align: center;
+        }
+        div:last-child{
+            margin-top: 50px;
+            margin-left: 0px;
+            text-align: center;
+        }
+    }
+}
 
