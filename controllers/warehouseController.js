@@ -1,5 +1,5 @@
-const { Warehouse, productLine, ManufactureFactory, Agent, Manager } = require('../models');
-
+const { Warehouse, productLine, ManufactureFactory, Agent, Manager, sequelize } = require('../models');
+const { QueryTypes } = require('sequelize');
 function newWarehouse(CssxOrAgent, userId, name, res) {
     CssxOrAgent.findOne({
         where: { managerID: userId },
@@ -19,16 +19,33 @@ function newWarehouse(CssxOrAgent, userId, name, res) {
         });
 }
 
-function getAll(CssxOrAgent, userId, res) {
+ function getAll(CssxOrAgent, userId, res) {
     CssxOrAgent.findOne({
         where: {
             managerID: userId,
         },
     })
         .then((data) => {
-            data.getWarehouses()
-                .then((warehouses) => {
-                    res.status(200).send(warehouses);
+            data.getWarehouses({raw: true})
+                .then(async (warehouses) => {
+                  
+                    let result = [];
+                    for(let i = 0; i < warehouses.length; i++) {
+                        let sum = await sequelize.query(`
+                        SELECT SUM(I.inventoryNumber) AS sum
+                        FROM warehouses AS W
+                        LEFT JOIN inventories AS I ON W.id = I.warehouseID
+                        WHERE W.id = ${warehouses[i].id};`, 
+                        { type: QueryTypes.SELECT,
+                            raw: true,
+                        },)
+
+                        result.push(sum[0].sum)
+                    }                   
+                    
+                     
+                        // res.status(200).send(result)
+                        res.render('warehouse/warehouse.hbs', { warehouses, result, isShow: true})
                 })
                 .catch((err) => {
                     res.status(404).send('Ko thay kho');
@@ -87,14 +104,16 @@ class warehouseController {
     }
 
     //[GET] /warehouse/getDetailWarehouse/:id
-    getDetailWarehouse(req, res, next) {
+     getDetailWarehouse(req, res, next) {
         const id = req.params.id;
 
         Warehouse.findAll({
             where: { id: id },
             include: productLine,
+            raw: true,
+            nest: true,
         })
-            .then((data) => res.status(200).send(data))
+            .then((data) =>res.render('warehouse/detailWarehouse.hbs', {detailWarehouses: data, isShow: true}))
             .catch((err) => res.status(500).send(err));
     }
 }

@@ -13,13 +13,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>manufactoty1</td>
-                    <td>100</td>
-                    <td><a href="">Chi tiết</a></td>
-                </tr>
+                
+                {{#each warehouses}}
+                    <tr>
+                        <td>{{@index}}</td>
+                        <td>{{this.id}}</td>
+                        <td>{{this.name}}</td>
+                        <td>{{lookup ../result @index}}</td>
+                        <td><a href="/warehouse/getDetailWarehouse/{{this.id}}">Chi tiết</a></td>
+                    </tr>
+                {{/each}}
                  
             </tbody>
         </table>

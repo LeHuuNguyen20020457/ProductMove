@@ -17,11 +17,37 @@
       font-weight: 500;
       font-size: 14px; }
       #nav .menu div a svg,
-      #nav .menu div a i {
+      #nav .menu div a .fa-gear-cd {
         margin-left: -10px;
         margin-right: 10px; }
-    #nav .menu div:hover {
+    #nav .menu div:hover:not(.nav-down) {
       background-color: rgba(0, 0, 0, 0.1); }
+  #nav .menu .icon-up {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px; }
+  #nav .menu .nav-down {
+    display: none; }
+    #nav .menu .nav-down ul li {
+      list-style-type: none;
+      border-top: 1px solid #ccc;
+      padding: 5px 0;
+      width: 80%;
+      text-align: left; }
+      #nav .menu .nav-down ul li:hover {
+        background-color: rgba(0, 0, 0, 0.1); }
+      #nav .menu .nav-down ul li a {
+        margin-left: 15px; }
+
+@keyframes rotateDown {
+  from { }
+  to {
+    transform: rotate(180deg); } }
+
+@keyframes rotateUp {
+  from { }
+  to {
+    transform: rotate(0); } }
 
 @media only screen and (min-width: 740px) and (max-width: 1023px) {
   #nav {

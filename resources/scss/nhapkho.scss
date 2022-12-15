@@ -1,0 +1,44 @@
+.nhapkho{
+    flex: 1;
+    margin-left: 20vw;
+    margin-top: 30px;
+    .nhapkho__title{
+        display: flex;
+        i{
+            font-size: 30px;
+            color: rgb(23, 98, 211);
+        }
+        p{
+            margin: {
+                left: 20px;
+                bottom: 10px;
+            };
+            font-size: 20px;
+            // font-family: 'Times New Roman', Times, serif;
+            font-weight: 500;
+            color: red;
+        }
+    }
+    form {
+        div{
+        margin-top: 20px;
+
+        select,input,textarea{
+            width: 35vw;
+            padding: 7px 0px;
+            margin-top: 5px;
+            outline: navajowhite;
+        }
+    }
+        button {
+            margin-left: 28vw;
+            background-color: blue;
+            padding: 10px 5px;
+            color: #fff;
+            font-size: medium;
+            margin-top: 10px;
+            border: 1px solid red ;
+            border-radius: 10px;
+        }
+    }
+}

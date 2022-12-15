@@ -1,0 +1,31 @@
+.nhapkho {
+  flex: 1;
+  margin-left: 20vw;
+  margin-top: 30px; }
+  .nhapkho .nhapkho__title {
+    display: flex; }
+    .nhapkho .nhapkho__title i {
+      font-size: 30px;
+      color: #1762d3; }
+    .nhapkho .nhapkho__title p {
+      margin-left: 20px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: 500;
+      color: red; }
+  .nhapkho form div {
+    margin-top: 20px; }
+    .nhapkho form div select, .nhapkho form div input, .nhapkho form div textarea {
+      width: 35vw;
+      padding: 7px 0px;
+      margin-top: 5px;
+      outline: navajowhite; }
+  .nhapkho form button {
+    margin-left: 28vw;
+    background-color: blue;
+    padding: 10px 5px;
+    color: #fff;
+    font-size: medium;
+    margin-top: 10px;
+    border: 1px solid red;
+    border-radius: 10px; }

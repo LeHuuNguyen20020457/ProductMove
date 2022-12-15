@@ -1,0 +1,19 @@
+.detail-warehouse {
+  flex: 1;
+  width: 100%;
+  margin-left: 100px;
+  margin-top: 50px; }
+  .detail-warehouse > h2 {
+    color: red; }
+  .detail-warehouse table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-top: 50px; }
+  .detail-warehouse tr {
+    border: 1px solid #d6d2d2; }
+  .detail-warehouse thead tr {
+    background-color: #59b8f4; }
+  .detail-warehouse tbody td {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500px; }

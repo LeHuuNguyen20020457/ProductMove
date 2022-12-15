@@ -1,0 +1,28 @@
+<div class="detail-warehouse">
+    <h2>Hàng tồn kho</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Mã sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Gía bán</th>
+                <th>Tồn kho</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each detailWarehouses as |DWH|}}
+                
+                    <tr>
+                        <td>{{@index}}</td>
+                        <td>{{DWH.productLines.codeProductLine}}</td>
+                        <td>{{DWH.productLines.nameProductLine}}</td>
+                        <td>{{DWH.productLines.price}}</td>
+                        <td>{{DWH.productLines.Inventory.inventoryNumber}}</td>
+                    </tr>
+               
+            {{/each}}
+            
+        </tbody>
+    </table>
+</div>
