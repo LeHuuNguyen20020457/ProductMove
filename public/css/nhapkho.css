@@ -28,4 +28,5 @@
     font-size: medium;
     margin-top: 10px;
     border: 1px solid red;
-    border-radius: 10px; }
+    border-radius: 10px;
+    cursor: pointer; }

@@ -4,23 +4,29 @@
             <i class="fa-solid fa-circle-info"></i>
             <p>Điền thông tin trước khi cho sản phẩm vào kho</p>
         </div>
-        <form action="">
+        <form method="POST" action="/inventory/addProductsToWarehouse">
             <div>
                 <p>Chọn sản phẩm:</p>
-                <select name="" id="">
-                    <option value=""></option>
+                <select name="codeProductLine" id="" required>
+                    <option value="">-- Lựa chọn sản phẩm --</option>
+                    {{#each productlines}}
+                        <option value="{{this.codeProductLine}}">{{this.nameProductLine}}</option>
+                    {{/each}}
                 </select>
             </div>
 
             <div>
                 <p>Số lượng</p>
-                <input type="text" placeholder="" name="">
+                <input type="text" placeholder="" name="amount">
             </div>
 
             <div>
                 <p>Chọn kho của bạn</p>
-                <select name="" id="">
-                    <option value=""></option>
+                <select name="warehouseID" id="" required>
+                    <option value="">-- Lựa chọn kho muốn cho hàng vào --</option>
+                    {{#each allWahouses}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                    {{/each}}
                 </select>
             </div>
 
@@ -28,7 +34,15 @@
                 <p>Ghi chú:</p>
                 <textarea name="" id="" cols="30" rows="3"></textarea>
             </div>
-            <button type="submit">Cho vào kho</button>
+            <button type="submit" class="btn-nhapkho">Cho vào kho</button>
     </form>
    </div>
 </div>
+
+<script>
+    const btnSubmit = document.querySelector(".btn-nhapkho")
+    btnSubmit.onclick = function(e) {
+        confirm('Bạn chắc chắn muốn cho vào')
+    }
+
+</script>

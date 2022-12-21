@@ -20,11 +20,21 @@ class inventoryController {
         });
 
         await inven.set({
-            inventoryNumber: +inven.inventoryNumber + amount,
+            inventoryNumber: +inven.inventoryNumber + Number(amount),
         });
         inven.save();
-        res.status(200).send('Đã cho vào kho thành công');
+        res.status(200).redirect('back');
     }
+
+
+    //[POST] /inventory/xuatkho
+    handleXuatKho(req, res, next) {
+        const {selectedAgent, dateXuat, typeXuat, note, tax, promotionalMoney, payments, selectedWarehouse, rowsProductXK} = req.body;
+        
+
+
+    }
+
 }
 
 module.exports = new inventoryController();

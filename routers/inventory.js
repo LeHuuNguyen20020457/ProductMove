@@ -12,4 +12,12 @@ router.post(
     inventoryController.addProductsToWarehouse,
 );
 
+router.post(
+    '/xuatkho',
+    authorization,
+    checkManager(['Agent', 'ManufactureFactory']),
+    inventoryController.handleXuatKho,
+);
+
+
 module.exports = router;

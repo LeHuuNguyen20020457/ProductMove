@@ -56,6 +56,31 @@ function newWarehouse(CssxOrAgent, userId, name, res) {
         });
 }
 
+
+function getAllKho(CssxOrAgent, userId){
+    
+    const allWahouses = CssxOrAgent.findOne({
+        where: {
+            managerID: userId
+        }
+    })
+    .then( (cs) => {
+        const promise = cs.getWarehouses({raw: true})
+            .then( data => {
+                return data
+            })
+            .catch((err) => {
+                res.status(500).send(err)
+            })
+            
+        return promise
+    })
+    .catch((err) => {
+        res.status(500).send(err) 
+    })
+    return allWahouses;
+}
+
 class warehouseController {
     //[POST] /warehouse/create
     //chỉ có cssx và agent mới được tạo kho
@@ -82,7 +107,7 @@ class warehouseController {
             });
     }
 
-    // lấy tất cả các kho của 1 cơ sở sản xuất hoặc 1 agent
+    // lấy tất cả các kho của 1 cơ sở sản xuất hoặc 1 agent cho trang các nhà kho
     //[GET] /warehouse/getWarehouse
 
     getWarehouse(req, res, next) {
@@ -116,6 +141,123 @@ class warehouseController {
             .then((data) =>res.render('warehouse/detailWarehouse.hbs', {detailWarehouses: data, isShow: true}))
             .catch((err) => res.status(500).send(err));
     }
+
+
+
+
+
+    //dùng cho nhập kho
+    //[GET] 
+    async getNhapKho(req, res, next){
+        const userId = req.userId;
+        
+        const productlines = await productLine.findAll({raw: true})
+
+        Manager.findOne({
+            where: {
+                id: userId,
+            },
+        }).then((manager) => {
+            // kiểm tra xe nó thuộc CSSX hay đại lý
+            const rol = manager.role;
+            if (rol.toString() === 'ManufactureFactory') {
+                 getAllKho(ManufactureFactory, userId)
+                .then((allWahouses) => {
+                    res.render('warehouse/nhapkho.hbs', {productlines, allWahouses, isShow: true})
+                    // res.status(200).send({productlines, allWahouses});
+                })
+            } else {
+                getAllKho(Agent, userId)
+                .then((allWahouses) => {
+                    res.render('warehouse/nhapkho.hbs', {productlines, allWahouses, isShow: true})
+                    // res.status(200).send({productlines, allWahouses});
+                })
+            }
+            
+        })
+        .catch((err) => {
+            res.status(500).send(err)
+        })
+    }
+
+    //dùng cho trang xuất kho
+    //lấy tất cả các đại lý, kho, dòng sản phẩm tồn trong kho
+     getXuatKho(req, res, next) {
+        const userId = req.userId
+        var allWarehousesPromise;
+        var allAgentsPromise;
+        var allProductLinesOfWarehousesPromise;
+        
+
+        // lấy tất cả cá nhà kho của cssx
+        allWarehousesPromise = Manager.findOne({
+            where: {
+                id: userId,
+            },
+        }).then((manager) => {
+            // kiểm tra xe nó thuộc CSSX hay đại lý
+            const rol = manager.role;
+            if (rol.toString() === 'ManufactureFactory') {
+                let data = getAllKho(ManufactureFactory, userId)
+                .then((allWahouses) => {
+                    return allWahouses
+                })
+                return data;
+            } else {
+                res.status(404).send('Bạn không có quyền truy cập vào trang này')
+            } 
+        })
+        .catch(err => {
+            res.status(500).send(err)
+        })
+        
+        //lấy tất cả các đại lý
+        allAgentsPromise = Agent.findAll({raw: true})
+        .then((agents) => {
+            return agents;
+        })
+        .catch(err => {
+            res.status(500).send(err)
+        })
+
+        allProductLinesOfWarehousesPromise =
+        allWarehousesPromise
+        .then( async (warehouses) => {
+            var allProductlines = [];
+            for(let i = 0; i < warehouses.length; i++) {
+                let productline = await Warehouse.findAll({
+                    where: {
+                        id: warehouses[i].id
+                    },
+                    include: productLine,
+                    raw: true,
+                    nest: true,
+                })
+                allProductlines.push(productline)
+            }
+            
+            return allProductlines;
+        })
+        .catch(err => {
+            res.status(500).send(err)
+        })
+
+
+        
+
+        Promise.all([allAgentsPromise, allWarehousesPromise, allProductLinesOfWarehousesPromise])
+        .then( ([allAgents, allWarehouses, allProductLinesOfWarehouses]) => {
+            // res.status(200).send({allAgents, allWarehouses, allProductLinesOfWarehouses})
+            res.render('warehouse/xuatkho.hbs',{allAgents, allWarehouses, allProductLinesOfWarehouses, isShow: true} )
+        })
+        .catch(err => {
+            res.status(500).send(err)
+        })
+        
+
+    }
+
+
 }
 
 module.exports = new warehouseController();

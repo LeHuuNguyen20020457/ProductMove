@@ -1,0 +1,266 @@
+<div class="xuatkho">
+    <div class="xuatkho__header">
+        <p>Nhập thông tin xuất hàng cho đại lý</p>
+    </div>
+
+    <div class="xuatkho__info">
+    
+        <div class="xuatkho__info-left">
+            <div>
+                <p>Đại lý</p>
+                <select name="agentID" id="" required>
+                    <option value="">--Chọn đại lý muốn xuất--</option>
+                    {{#each allAgents}}
+                    <option value="{{this.id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div>
+                <p>Ngày bán</p>
+                <input type="date">
+            </div>
+            <div>
+                <p>Loại xuất</p>
+                <select name="typeXuat" id="" required>  
+                    <option value="0">Bán theo lô</option>
+                    <option value="1">Bán lẻ</option>
+                </select>
+            </div>
+            <div>
+                <p>Ghi chú</p>
+                <textarea name="note-xuatkho" id="" cols="30" rows="3"></textarea>
+            </div>
+        </div>
+
+
+        <div class="xuatkho__info-right">
+            <div>
+                <p>%CK</p>
+                <input name="tax" type="text" placeholder="%VAT">
+            </div>
+            <div>
+                <p>Tiền KM</p>
+                <input name = "promotionalMoney" type="text">
+            </div>
+            <div>
+                
+                <p>Thanh toán</p>
+                <select name="payments" id="" required>  
+                    <option value="0">Tiền mặt</option>
+                    <option value="1">Chuyển khoản</option>
+                </select>
+                
+            </div>
+
+        </div>
+    </div>
+
+    <div class="xuatkho__warehouse">
+        <select name="warehouseID" id="" class="slectWarehouse" onchange="handleSelectWarehouse(this);" required>
+            <option value="">Chọn kho của bạn</option>
+            {{#each allWarehouses}}
+                <option data-codeWarehouse="{{this.id}}" value="{{sum 1 @index}}" class="optionWarehouse">{{this.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="xuatkho__product">
+        <p>Chọn sản phẩm muốn xuất:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Đơn vị tính</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá mỗi chiếc</th>
+                    <th>Khuyến mại</th>
+                    <th>Tổng giá</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr class="row-1">
+                        <td>1</td>
+                        <td>
+                            <select onchange="handleShowPrice(this)" name="productsXK[]" id="" class="productLineInWarehouse">
+                                
+                            </select>
+                        </td>
+                        <td>chiếc</td>
+                        <td><input type="text" class=""></td>
+                        <td class="show-price"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td onclick = "handleDeleteRows(this)"><i class="fa-regular fa-trash-can"></i></td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="xuatkho__btn">
+        <button class="btn-xuathang">Xuất hàng</button>
+        <button>Huỷ bỏ</button>
+    </div>
+
+</div>
+
+<script>
+
+    const optionWarehouse = document.querySelectorAll('.optionWarehouse')
+    const slectWarehouse = document.querySelector('.slectWarehouse')
+    const tbody = document.querySelector('tbody')
+   
+    var optionProductLine
+    
+    function handleSelectWarehouse(select){
+        const selectProductLine = document.querySelector('.productLineInWarehouse')
+        
+           switch (+select.value-1) {
+                case 0:
+                    optionProductLine = '{{{selectProductLine 0 allProductLinesOfWarehouses}}}'
+                    selectProductLine.innerHTML = optionProductLine 
+                     break;
+                case 1:
+                    optionProductLine = '{{{selectProductLine 1 allProductLinesOfWarehouses}}}'
+                    selectProductLine.innerHTML = optionProductLine
+
+                     break;
+                case 2:  
+                    optionProductLine = '{{{selectProductLine 2 allProductLinesOfWarehouses}}}'
+                    selectProductLine.innerHTML = optionProductLine
+                     break;
+           }
+        }
+        
+
+        // tự động thêm 1 dòng của table
+        function addRows() {
+
+            tbody.onclick = function (e) {
+                
+                var inputAmount = document.querySelector('tbody tr:last-child input[type="text"]')
+                inputAmount.onchange =function(e)
+                {
+                    const tr = document.createElement('tr')
+                    tr.innerHTML = `<td>1</td>
+                                    <td>
+                                        <select  onchange="handleShowPrice(this)" name="productsXK[]" id="" class="productLineInWarehouse">
+                                            ${optionProductLine}
+                                        </select>
+                                    </td>
+                                    <td>chiếc</td>
+                                    <td><input type="text" class=""></td>
+                                    <td></td>
+                                    <td><input type="checkbox"></td>
+                                    <td></td>
+                                    <td onclick = "handleDeleteRows(this)"><i class="fa-regular fa-trash-can"></i></td>`
+                    tbody.appendChild(tr)
+                    const inputClone = inputAmount.cloneNode(true)
+                    const parentInput = inputAmount.parentNode
+                    parentInput.replaceChild(inputClone, inputAmount)
+                }
+            }
+        }
+        addRows()
+
+        
+
+        function handleShowPrice(select) {
+            const trPrarent = select.parentNode.parentNode
+            
+            trPrarent.children[4].innerText = select.children[+select.value + 1].getAttribute('data-price')
+
+            const price = select.children[+select.value + 1].getAttribute('data-price').split('.').join('')
+        
+
+            trPrarent.children[3].onchange = function(e) {
+                const totalPrice = Number(price) * Number(e.target.value)
+                trPrarent.children[6].innerText = totalPrice + ' VND'
+            }
+        }
+
+        function handleDeleteRows(clickTrash) {
+            clickTrash.parentNode.parentNode.removeChild(clickTrash.parentNode)
+        }
+
+        function handleXuaHang(){
+            const selectAgent = document.querySelector('select[name="agentID"]')
+            var agentID = selectAgent.value
+            var nameAgent = selectAgent.children[selectAgent.value].innerText
+            var selectedAgent = {agentID, nameAgent}
+
+            console.log(selectAgent.value)
+            console.log(selectAgent.children[selectAgent.value].innerText)
+            
+
+            const dateXuatElement = document.querySelector('input[type="date"]')
+            var dateXuat = dateXuatElement.value;
+            console.log(dateXuatElement.value)
+
+            const typeXuatElement = document.querySelector('select[name="typeXuat"]')
+            var typeXuat = typeXuatElement.children[typeXuatElement.value].innerText
+            console.log(typeXuatElement.children[typeXuatElement.value].innerText)
+
+            const noteElement = document.querySelector('textarea[name="note-xuatkho"]')
+            var note = noteElement.value 
+            console.log(noteElement.value)
+
+            const taxElement = document.querySelector('input[name="tax"]')
+            const promotionalMoneyElement = document.querySelector('input[name="promotionalMoney"]')
+            const paymentsElement = document.querySelector('select[name="payments"]')
+            var tax = taxElement.value
+            var promotionalMoney = promotionalMoneyElement.value
+            var payments = paymentsElement.children[paymentsElement.value].innerText
+            console.log(taxElement.value)
+            console.log(promotionalMoneyElement.value)
+            console.log(paymentsElement.children[paymentsElement.value].innerText)
+
+            const slectWarehouse = document.querySelector('.slectWarehouse')
+            var selectedWarehouse = {codeWarehouse: slectWarehouse.children[slectWarehouse.value].getAttribute('data-codeWarehouse'),
+                                    nameWarehouse: slectWarehouse.children[slectWarehouse.value].innerText}
+            console.log(slectWarehouse.children[slectWarehouse.value].getAttribute('data-codeWarehouse'))
+            console.log(slectWarehouse.children[slectWarehouse.value].innerText)
+
+            var rowsProductXK = []
+            const selectProduct = document.querySelectorAll('select[name="productsXK[]"]')
+            console.log(selectProduct)
+            for (let i = 0; i < selectProduct.length -1; i++) {
+                rowsProductXK.push({codeProductLine: selectProduct[i].children[+selectProduct[i].value + 1].getAttribute('data-codeProductLine'),
+                                    nameProductLine: selectProduct[i].children[+selectProduct[i].value + 1].innerText,
+                                    amount: selectProduct[i].parentNode.parentNode.children[3].children[0].value,
+                                    price: selectProduct[i].parentNode.parentNode.children[4].innerText, 
+                                    totalPrice: selectProduct[i].parentNode.parentNode.children[6].innerText})
+            }
+            console.log(rowsProductXK)
+
+            $.ajax(
+                {url: '/inventory/xuatkho',
+                type: "POST",
+                dataType: "json",
+                data: {
+                    selectedAgent,
+                    dateXuat,
+                    typeXuat,
+                    note,
+                    tax,
+                    promotionalMoney,
+                    payments,
+                    selectedWarehouse,
+                    rowsProductXK,
+                }}
+            ).done(function(ketqua) {
+               console.log(ketqua)
+            });
+
+
+        }
+        
+       document.addEventListener("DOMContentLoaded", function(){
+            $('.btn-xuathang').click(function() {
+                handleXuaHang()
+            })
+       })
+
+         
+</script>

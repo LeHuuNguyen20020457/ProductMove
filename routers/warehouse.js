@@ -20,6 +20,21 @@ router.get(
     warehouseController.getWarehouse,
 );
 
+router.get(
+    '/getAllWarehouse',
+    authorization,
+    checkManager(['ManufactureFactory', 'Agent']),
+    warehouseController.getNhapKho,
+);
+
+router.get(
+    '/xuatkho',
+    authorization,
+    checkManager(['ManufactureFactory']),
+    warehouseController.getXuatKho,
+);
+
+
 router.get('/getDetailWarehouse/:id', warehouseController.getDetailWarehouse);
 
 module.exports = router;
