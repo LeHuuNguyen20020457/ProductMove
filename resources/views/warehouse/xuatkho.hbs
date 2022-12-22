@@ -1,3 +1,4 @@
+
 <div class="xuatkho">
     <div class="xuatkho__header">
         <p>Nhập thông tin xuất hàng cho đại lý</p>
@@ -99,11 +100,12 @@
     </div>
 
     <div class="xuatkho__btn">
-        <button class="btn-xuathang">Xuất hàng</button>
+        <button class="btn-xuathang" type="submit">Xuất hàng</button>
         <button>Huỷ bỏ</button>
     </div>
 
 </div>
+
 
 <script>
 
@@ -234,10 +236,11 @@
             }
             console.log(rowsProductXK)
 
+            //gửi giữ liệu cho xuất kho
             $.ajax(
                 {url: '/inventory/xuatkho',
                 type: "POST",
-                dataType: "json",
+                dataType: "html",
                 data: {
                     selectedAgent,
                     dateXuat,
@@ -248,10 +251,12 @@
                     payments,
                     selectedWarehouse,
                     rowsProductXK,
-                }}
-            ).done(function(ketqua) {
-               console.log(ketqua)
-            });
+                }, success: function(result){
+                    $('.xuatkho').html(result)
+                }
+                }
+
+            )
 
 
         }

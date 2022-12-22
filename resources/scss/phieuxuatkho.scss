@@ -1,0 +1,50 @@
+.phieuxuatkho{
+    flex: 1;
+    margin: {
+        left: 50px;
+        top: 30px
+    };
+    p{
+        display: inline-block;
+    }
+    .title-bill{
+        text-align: center;
+        div{
+            font-size: 12px;
+        }
+    }
+    .content-bill{
+        margin-left: 50px;
+        div{
+            margin-top: 10px;
+        }
+        p {
+            margin-left: 10px;
+        }
+    }
+    .table-bill {
+        
+        > p{
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+        table, td, th{
+            border: 1px solid #333;   
+            border-spacing: 0;   
+            text-align: center; 
+        }
+        table{
+            width: 90%;
+            margin-top: 20px;
+        }
+    }
+    .signature-bill{
+        text-align: center;
+        float: right;
+        margin: {
+            right: 150px;
+            top: 50px;
+        }
+    }
+}

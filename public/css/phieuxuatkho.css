@@ -1,0 +1,32 @@
+.phieuxuatkho {
+  flex: 1;
+  margin-left: 50px;
+  margin-top: 30px; }
+  .phieuxuatkho p {
+    display: inline-block; }
+  .phieuxuatkho .title-bill {
+    text-align: center; }
+    .phieuxuatkho .title-bill div {
+      font-size: 12px; }
+  .phieuxuatkho .content-bill {
+    margin-left: 50px; }
+    .phieuxuatkho .content-bill div {
+      margin-top: 10px; }
+    .phieuxuatkho .content-bill p {
+      margin-left: 10px; }
+  .phieuxuatkho .table-bill > p {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 20px; }
+  .phieuxuatkho .table-bill table, .phieuxuatkho .table-bill td, .phieuxuatkho .table-bill th {
+    border: 1px solid #333;
+    border-spacing: 0;
+    text-align: center; }
+  .phieuxuatkho .table-bill table {
+    width: 90%;
+    margin-top: 20px; }
+  .phieuxuatkho .signature-bill {
+    text-align: center;
+    float: right;
+    margin-right: 150px;
+    margin-top: 50px; }

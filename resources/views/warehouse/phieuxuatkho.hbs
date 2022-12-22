@@ -1,0 +1,80 @@
+<div class="phieuxuatkho">
+    <div class="title-bill">
+        <h2>PHIẾU XUẤT KHO</h2>
+        <div>
+            Ngày <p>{{dayMonthYear.[2]}}</p>
+            Tháng <p>{{dayMonthYear.[1]}}</p>
+            Năm <p>{{dayMonthYear.[0]}}</p>
+        </div>
+    </div>
+
+    <div class="content-bill">
+       <div>
+            <p>Xuất từ kho: </p>
+            <p>{{selectedWarehouse.nameWarehouse}}</p>
+       </div>
+       <div>
+           <p>Đến đại lý: </p>
+            <p>{{selectedAgent.nameAgent}}</p>
+       </div>
+       <div>
+           <p>Loại xuất: </p>
+           <p>{{typeXuat}}</p>
+       </div>
+       <div>
+           <p>Tiền thuế VAT: </p>
+           <p>{{tax}}%</p>
+       </div>
+       <div>
+           <p>Tiền khuyến mại: </p>
+           <p>{{promotionalMoney}}</p>
+       </div>
+       <div>
+           <p>Hình thức thanh toán: </p>
+           <p>{{payments}}</p>
+       </div>
+    </div>
+
+    <div class="table-bill">
+        <p>Danh mục hàng hoá xuất kho</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Mã sản phẩm</th>
+                    <th>Đơn vị tính</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá mỗi chiếc</th>
+                    <th>Tổng tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+               {{#each rowsProductXK}}
+                     <tr>
+                        <td>{{sum 1 @index}}</td>
+                        <td>{{this.nameProductLine}}</td>
+                        <td>{{this.codeProductLine}}</td>
+                        <td>chiếc</td>
+                        <td>{{this.amount}}</td>
+                        <td>{{this.price}}</td>
+                        <td>{{this.totalPrice}}</td>
+                    </tr>
+               {{/each}}
+                <tr>
+                    <td></td>
+                    <td colspan="6">Tổng số tiền thanh toán: <p>{{totalMoneys}} VND</p></td>   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="signature-bill">
+        <h3>Thủ trưởng đơn vị</h3>
+        <p>(ký và ghi rõ họ tên)</p>
+    </div>
+
+</div>
+
+<script>
+
+</script>
