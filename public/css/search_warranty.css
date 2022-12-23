@@ -1,0 +1,30 @@
+.search__warranty {
+  flex: 1;
+  margin-left: 50px; }
+  .search__warranty img {
+    width: 100%;
+    height: 40vh; }
+  .search__warranty .search--type h2 {
+    text-align: center; }
+  .search__warranty .search--type .list--search {
+    display: flex;
+    justify-content: center; }
+    .search__warranty .search--type .list--search .item-search {
+      margin: 20px 20px;
+      display: flex; }
+      .search__warranty .search--type .list--search .item-search input {
+        margin-right: 10px; }
+  .search__warranty .search--phone {
+    width: 30%;
+    padding: 5px;
+    float: center; }
+  .search__warranty button {
+    padding: 5px;
+    background-color: blue;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px; }
+  .search__warranty .container--search {
+    width: 100%;
+    display: flex;
+    justify-content: center; }

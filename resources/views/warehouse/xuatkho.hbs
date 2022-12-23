@@ -174,7 +174,6 @@
             trPrarent.children[4].innerText = select.children[+select.value + 1].getAttribute('data-price')
 
             const price = select.children[+select.value + 1].getAttribute('data-price').split('.').join('')
-        
 
             trPrarent.children[3].onchange = function(e) {
                 const totalPrice = Number(price) * Number(e.target.value)
@@ -266,6 +265,4 @@
                 handleXuaHang()
             })
        })
-
-         
 </script>

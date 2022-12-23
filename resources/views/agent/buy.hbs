@@ -1,0 +1,80 @@
+<div class="buy__info">
+   <div class="buy__info-title">
+       <p>Nhập thông tin giao dịch mua bán sản phẩm</p>
+   </div>
+   <div class="content-buy">
+       <div>
+            <div class="info--item">
+                <label>Tên khách hàng</label>
+                <input class="name--customer" type="text" name="" id="">
+            </div>
+            <div class="info--item">
+                <label for="">Số điện thoại</label>
+                <input class="phone--customer" type="text" name="" id="">
+            </div>
+
+            <div class="info--item">
+                <label for="">Mã sản phẩm</label>
+                <input class="code--sp" type="text" name="" id="">
+            </div>
+            <div class="info--item">
+                <label for="">Gía bán</label>
+                <input type="text" name="" id="">
+            </div>
+            <div class="info--item">
+                <label for="">Chiết khấu</label>
+                <input type="text" name="" id="">
+            </div>
+            <div class="info--item">
+                <label for="">Thanh toán</label>
+                <select name="" id="">
+                    <option value="">Tiền mặt</option>
+                    <option value="">Chuyển khoản</option>
+                    <option value="">Trả góp</option>
+                </select>
+            </div>
+            <div class="info--item">
+                <label for="">Nhân viên tư vấn</label>
+                <input type="text" name="" id="">
+            </div>
+            <div class="info--item">
+                <label for="">Nhân viên kỹ thuật</label>
+                <input type="text" name="" id="">
+            </div>
+            <div class="info--item">
+                <label for="">Ghi chú</label>
+                <textarea name="" id="" cols="30" rows="3"></textarea>
+            </div>
+            <div class="btn-save">
+                <button class="save--info-buy">Lưu</button>
+                <button>
+                    <i class="fa-solid fa-print"></i>
+                    Lưu và xuất hoá đơn
+                </button>
+            </div>
+        </div>
+   </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        $('.save--info-buy').click(function() {
+            const nameCustomer = $('.name--customer').val();
+            const phoneCustomer = $('.phone--customer').val();
+            const codeSP = $('.code--sp').val();
+            $.ajax({
+                url: '/customer/buy/createCustomer',
+                type: 'POST',
+                dataType: 'html',
+                data: {
+                    name: nameCustomer,
+                    phone: phoneCustomer,
+                    productID: codeSP
+                },
+                success: function(result) {
+                    $('.buy__info').html(result)
+                }
+            })
+        })
+    })
+</script>

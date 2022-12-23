@@ -11,7 +11,10 @@ class productController {
             },
         })
             .then((data) => {
-                res.status(200).send('Người mua đã được cập nhật');
+                res.render('agent/home.hbs', function (err, html) {
+                    if(err) res.status(500).send(err)
+                    res.status(200).send(html);
+                })
             })
             .catch((err) => {
                 res.status(500).send(err);

@@ -1,93 +1,26 @@
-<div class="content">
-    <div class='slider'>
-    <div class='slides'>
-        <input type='radio' name='radio-btn' id='radio1' />
-        <input type='radio' name='radio-btn' id='radio2' />
-        <input type='radio' name='radio-btn' id='radio3' />
-        <input type='radio' name='radio-btn' id='radio4' />
-
-        <div class='slide first'>
-            <img src='https://cdn.honda.com.vn/motorbikes/March2022/Iig92U3YFFD8HPkjOVob.jpg' alt='' />
+<div class="search__warranty">
+    <img src="https://benza.vn/datafiles/33470/upload/images/image-20210803111000-2.png" alt="">
+    <div class="search--type">
+        <h2>Tra Cứu Thông Tin Bảo Hành</h2>
+        <div class="list--search">
+            <div class="item-search">
+                <input type="radio" name="" id=""> 
+                <p>Tra theo số điện thoại</p>
+            </div>
+            <div class="item-search">
+                <input type="radio" name="" id=""> 
+                <p>Tra theo mã IMEI</p>
+            </div>
+            <div class="item-search">
+                <input type="radio" name="" id=""> 
+                <p>Tra theo mã jobcard</p>
+            </div>
         </div>
-        <div class='slide'>
-            <img src='https://cdn.honda.com.vn/motorbikes/November2020/Ws81dN8Qvux1lm7zLkMh.jpg' alt='' />
-        </div>
-        <div class='slide'>
-            <img src='https://cdn.honda.com.vn/motorbikes/December2022/1iweQpDWX6rFhviBD7fr.png' alt='' />
-        </div>
-        <div class='slide'>
-            <img src='https://cdn.honda.com.vn/motorbikes/August2021/0iWnMT7utbGIadCX6CS0.jpg' alt='' />
-        </div>
-
-        <div class='navigation-auto'>
-            <div class='auto-btn1'></div>
-            <div class='auto-btn2'></div>
-            <div class='auto-btn3'></div>
-            <div class='auto-btn4'></div>
-        </div>
-
-        <div class='navigation-manual'>
-            <label for='radio1' class='manual-btn'></label>
-            <label for='radio2' class='manual-btn'></label>
-            <label for='radio3' class='manual-btn'></label>
-            <label for='radio4' class='manual-btn'></label>
+        <div class="container--search">
+            <input class="search--phone" type="text">
+            <button>
+                Kiểm tra
+            </button>
         </div>
     </div>
 </div>
-
-    <div class="gird product--list">
-        <h1>Lựa Chọn Phong Cách Riêng Của Bạn</h1>
-        <div class="row">
-           {{#each productlines}}
-            <div class="product--item col l-3 m-6 c-12">
-                <div class = "color__motor">
-                    <div class = "color__motor--item"></div>
-                    <div class = "color__motor--item"></div>
-                    <div class = "color__motor--item"></div>
-                </div>
-                <div>
-                    <a href="/productLine/productParameter?type={{this.codeProductLine}}">
-                        <img src="{{this.avatar}}" alt="Xe motor">
-                    </a>
-                </div>
-                <div class="name-price-motor">
-                    <p class="name--motor">{{this.nameProductLine}}</p>
-                    <p class="price--motor">{{this.price}}</p>
-                </div>
-            
-            </div>
-            {{/each}}
-
-            {{#each productlines}}
-            <div class="product--item col l-3 m-6 c-12">
-                <div class = "color__motor">
-                    <div class = "color__motor--item"></div>
-                    <div class = "color__motor--item"></div>
-                    <div class = "color__motor--item"></div>
-                </div>
-                <div>
-                    <img src="{{this.avatar}}" alt="Xe motor">
-                </div>
-                <div class="name-price-motor">
-                    <p class="name--motor">{{this.nameProductLine}}</p>
-                    <p class="price--motor">{{this.price}}</p>
-                </div>
-            
-            </div>
-            {{/each}}
-            
-        </div>
-    </div>
-
-</div>
-
-<script>
-    let counter = 1;
-    setInterval(function() { 
-        document.getElementById('radio' + counter).checked = true
-        counter ++;
-        if(counter > 4){
-            counter = 1
-        }
-    }, 3000)
-</script>

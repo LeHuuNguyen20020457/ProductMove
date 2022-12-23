@@ -1,0 +1,37 @@
+.buy__info {
+  flex: 1;
+  margin-left: 50px; }
+  .buy__info .buy__info-title {
+    background-color: #0080ff;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    width: 90%;
+    padding: 15px 0; }
+    .buy__info .buy__info-title p {
+      margin-left: 20px; }
+  .buy__info .content-buy {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 90%;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center; }
+    .buy__info .content-buy > div {
+      width: 50%;
+      margin-left: 50px; }
+    .buy__info .content-buy .info--item {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px; }
+      .buy__info .content-buy .info--item input, .buy__info .content-buy .info--item select, .buy__info .content-buy .info--item textarea {
+        width: 50%;
+        padding: 10px 0; }
+    .buy__info .content-buy .btn-save {
+      float: right;
+      margin-top: 20px; }
+      .buy__info .content-buy .btn-save button {
+        padding: 5px;
+        cursor: pointer; }
+      .buy__info .content-buy .btn-save button + button {
+        margin-left: 10px; }
