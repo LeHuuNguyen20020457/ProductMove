@@ -15,6 +15,7 @@ const routerProduct = require('./product');
 const routerSendWarranty = require('./sendWarranty');
 const routerParts = require('./parts');
 
+
 function router(app) {
     app.use('/manager', routerManager);
     app.use('/customer/buy', routerCustomer);
@@ -34,6 +35,8 @@ function router(app) {
     app.use('/productDelivery', routerProductDelivery);
 
     app.use('/auth', routerAuth);
+    
+    app.use('/buy', routerBuy);
 
     app.use('/sendWarranty', routerSendWarranty);
 

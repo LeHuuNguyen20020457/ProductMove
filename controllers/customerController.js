@@ -28,14 +28,14 @@ class customerController {
             });
     }
 
-    //[GET] /customer/buy/searchProductWarranty
+    //[POST] /customer/buy/searchProductWarranty
     //lấy tất cả các sản phẩm mà khách hàng đã mua trong thời gian bảo hành
     async searchProductWarranty(req, res, next) {
-        //đính lên param
-        const numberPhone = req.query.phone;
-
-        const pro = await sequelize.query(
-            `SELECT C.name, PL.nameProductLine as nameProduct, P.id as productID, B.timeToBuy, ADDDATE( B.timeToBuy, INTERVAL PL.warrantyPeriod*365 DAY) AS expirationIime
+       
+        const numberPhone = req.body.phone;
+        
+        var pros = await sequelize.query(
+            `SELECT C.name, C.phone, PL.nameProductLine as nameProduct, PL.warrantyPeriod, P.productStatus, P.id as productID,B.id as MDH, B.timeToBuy, ADDDATE( B.timeToBuy, INTERVAL PL.warrantyPeriod*365 DAY) AS expirationIime
         FROM customers as C 
         INNER JOIN buys as B ON B.customerID = C.id
         INNER JOIN products as P ON B.productID = P.id
@@ -46,11 +46,44 @@ class customerController {
         `,
             { type: QueryTypes.SELECT },
         );
-        res.send(pro);
+        
+        pros = pros.map((pro, index) => {
+            if(Number(pro.productStatus) === 0){
+                return {
+                    ...pro,
+                    productStatus: 'Tốt',
+                    timeToBuy: pro.timeToBuy.toLocaleDateString(),
+                    expirationIime: pro.expirationIime.toLocaleDateString()
+                }
+            }
+            else if(Number(pro.productStatus) === 1)
+            {
+                return {
+                    ...pro,
+                    productStatus: 'Đang sửa chửa',
+                    timeToBuy: pro.timeToBuy.toLocaleDateString(),
+                    expirationIime: pro.expirationIime.toLocaleDateString()
+                }
+            }
+            else{
+                return {
+                    ...pro,
+                    productStatus: 'Lỗi',
+                    timeToBuy: pro.timeToBuy.toLocaleDateString(),
+                    expirationIime: pro.expirationIime.toLocaleDateString()
+                }
+            }
+        })
+        
+        res.render('warehouse/tableSPBH.hbs', {
+            pros
+        }, function(err, html) {
+            if(err) res.status(500).send(err)
+            res.status(200).send(html)
+        })
     }
 
     //[POST] /customer/buy/createCustomer
-
     // cần phải nhập tên và SDDT khách hàng và mã SP
     createCustomer(req, res, next) {
         const { name, phone, productID } = req.body;

@@ -13,7 +13,8 @@
       margin: 20px 20px;
       display: flex; }
       .search__warranty .search--type .list--search .item-search input {
-        margin-right: 10px; }
+        margin-right: 10px;
+        cursor: pointer; }
   .search__warranty .search--phone {
     width: 30%;
     padding: 5px;
@@ -28,3 +29,67 @@
     width: 100%;
     display: flex;
     justify-content: center; }
+  .search__warranty table {
+    width: 90%;
+    border-spacing: 0px;
+    text-align: center;
+    margin-top: 50px; }
+    .search__warranty table th, .search__warranty table td {
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  .search__warranty .detail__info-product-warranty {
+    background-color: rgba(81, 94, 123, 0.3);
+    width: 100%;
+    padding: 10px; }
+    .search__warranty .detail__info-product-warranty > div {
+      background-color: #fff; }
+    .search__warranty .detail__info-product-warranty .title {
+      border-top: 1px solid blue;
+      width: 30%;
+      text-align: center; }
+    .search__warranty .detail__info-product-warranty .content__bill--PW {
+      display: flex;
+      padding: 10px 0; }
+      .search__warranty .detail__info-product-warranty .content__bill--PW .detail-SP, .search__warranty .detail__info-product-warranty .content__bill--PW .detail-KH {
+        flex: 1; }
+        .search__warranty .detail__info-product-warranty .content__bill--PW .detail-SP > div, .search__warranty .detail__info-product-warranty .content__bill--PW .detail-KH > div {
+          display: flex; }
+        .search__warranty .detail__info-product-warranty .content__bill--PW .detail-SP > div p:first-child, .search__warranty .detail__info-product-warranty .content__bill--PW .detail-KH > div p:first-child {
+          width: 40%;
+          text-align: left; }
+        .search__warranty .detail__info-product-warranty .content__bill--PW .detail-SP > div p:last-child, .search__warranty .detail__info-product-warranty .content__bill--PW .detail-KH > div p:last-child {
+          flex: 1;
+          text-align: left; }
+      .search__warranty .detail__info-product-warranty .content__bill--PW .detail-SP {
+        margin-left: 20px; }
+      .search__warranty .detail__info-product-warranty .content__bill--PW p {
+        display: inline-block;
+        padding: 5px; }
+    .search__warranty .detail__info-product-warranty .time-bh > div:first-child {
+      background-color: rgba(81, 94, 123, 0.2);
+      width: 96%;
+      margin: auto;
+      padding: 5px 2px; }
+    .search__warranty .detail__info-product-warranty .time-bh > div {
+      display: flex;
+      justify-content: space-around; }
+    .search__warranty .detail__info-product-warranty .time-bh p {
+      display: inline-block; }
+    .search__warranty .detail__info-product-warranty .btn-WR {
+      height: 50px;
+      margin-bottom: 10px; }
+      .search__warranty .detail__info-product-warranty .btn-WR button {
+        float: right;
+        margin: 20px 20px 0; }
+  .search__warranty .hiden {
+    display: none; }
+
+@keyframes bottomArrows {
+  from { }
+  to {
+    transform: rotate(90deg); } }
+
+@keyframes rightArrows {
+  from { }
+  to {
+    transform: rotate(0deg); } }

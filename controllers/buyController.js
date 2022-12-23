@@ -15,6 +15,12 @@ class buyController {
                 res.status(500).send(err);
             });
     }
+
+
+    //[GET] /buy/info
+    getInterBuy(req, res, next) {
+        res.render('agent/buy.hbs', {isShow: true})
+    }
 }
 
 module.exports = new buyController();

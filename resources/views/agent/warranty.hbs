@@ -1,0 +1,67 @@
+<div class="search__warranty">
+    <img src="https://benza.vn/datafiles/33470/upload/images/image-20210803111000-2.png" alt="">
+    <div class="search--type">
+        <h2>Tra Cứu Thông Tin Sản phẩm Và Thông Tin Bảo Hành Của Khách Hàng</h2>
+        <div class="list--search">
+            <div class="item-search">
+                <input type="radio" name="" id=""> 
+                <p>Tra theo số điện thoại</p>
+            </div>
+            <div class="item-search">
+                <input type="radio" name="" id=""> 
+                <p>Tra theo mã IMEI</p>
+            </div>
+            <div class="item-search">
+                <input type="radio" name="" id=""> 
+                <p>Tra theo mã jobcard</p>
+            </div>
+        </div>
+        <div class="container--search">
+            <input class="search--phone" type="text" placeholder="Nhập số điện thoai hoặc mã IMEI">
+            <button class="search--phone-btn">
+                Kiểm tra
+            </button>
+        </div>
+    </div>
+    <div class="table--SPBH">
+    </div>
+</div>
+
+<script>
+
+    function handleTableSPBH() {
+        const rightArrows = $('.rightArrows')
+       
+        rightArrows.click(function(e){
+
+        if($(this).css("animation") !== '0.3s linear 0s 1 normal forwards running bottomArrows')
+            {
+                $(this).css({"animation": "bottomArrows 0.3s linear forwards",})
+            }
+            else{
+                    $(this).css({"animation": "rightArrows 0.3s linear forwards",})
+            }
+             $(this).parents('tr').next().toggle()
+        })
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        $(".search--phone-btn").click(function() {
+            var numberPhone = $(".search--phone").val()
+           
+            $.ajax({
+                url: '/customer/buy/searchProductWarranty',
+                type: 'POST',
+                dataType: 'html',
+                data: {
+                    phone: numberPhone,
+                },
+                success: function(result) {
+                    $('.table--SPBH').html(result)
+                    handleTableSPBH()
+                }
+            })
+                
+        })
+    })
+</script>

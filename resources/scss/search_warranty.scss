@@ -18,6 +18,7 @@
                display: flex;
                input{
                    margin-right: 10px;
+                   cursor: pointer;
                }
            }
        }
@@ -40,5 +41,118 @@
         width: 100%;
         display: flex;
         justify-content: center;
+    }
+
+
+
+    
+    table{
+        width: 90%;
+        // border: 1px solid rgba($color: #000000, $alpha: 0.2);
+        border-spacing: 0px;
+        text-align: center;
+        margin-top: 50px;
+        th, td{
+            
+            border: {
+                top: 1px solid rgba($color: #000000, $alpha: 0.1);
+                bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+            };
+        }
+
+    }
+
+    .detail__info-product-warranty{
+        background-color: rgba(81, 94, 123, 0.3);
+        width: 100%;
+        padding: 10px;
+        >div{
+            background-color: #fff;
+        }
+
+        .title{
+            border-top: 1px solid blue;
+            width: 30%;
+            text-align: center;
+        }
+        .content__bill--PW{
+            display: flex;
+            padding: 10px 0;
+
+            .detail-SP ,.detail-KH{
+                flex: 1;
+                > div{
+                    display: flex;
+                }
+                >div p:first-child{
+                    width: 40%;
+                    text-align: left;
+                }
+                >div p:last-child{
+                    flex: 1;
+                    text-align: left;
+                }
+            }
+
+            .detail-SP{   
+                margin-left: 20px;
+            }
+
+            .detail-KH{
+                
+            }
+
+            p{
+                display: inline-block;
+                padding: 5px;
+            }
+        }
+
+        .time-bh{
+            >div:first-child{
+                background-color: rgba(81, 94, 123, 0.2);
+                width: 96%;
+                margin: auto;
+                padding: 5px 2px;
+            }
+            >div {
+                display: flex;
+                justify-content: space-around;
+            }
+            p{
+                display:inline-block;
+            }
+        }
+
+        .btn-WR{
+            height: 50px;
+            button{
+                float: right;
+                margin: 20px 20px 0;
+            }
+            margin-bottom: 10px;
+        }
+        
+    }
+    .hiden{
+        display: none;
+    }
+}
+
+@keyframes bottomArrows {
+    from{
+
+    }
+    to{
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes rightArrows {
+    from{
+
+    }
+    to{
+        transform: rotate(0deg);
     }
 }

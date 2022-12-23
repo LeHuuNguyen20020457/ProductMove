@@ -119,5 +119,10 @@ class agentController {
                 res.status(500).send(err);
             });
     }
+
+    //[GET] /agent/warranty/search
+    getInterWarranty(req, res, next) {
+        res.render('agent/warranty.hbs', {isShow: true})
+    }
 }
 module.exports = new agentController();

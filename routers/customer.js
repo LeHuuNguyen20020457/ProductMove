@@ -8,7 +8,7 @@ const productController = require('../controllers/productController');
 const { authorization } = require('../middlewares/authorization');
 const { checkManager } = require('../middlewares/checkManager');
 
-router.get('/searchProductWarranty', authorization, checkManager(['Agent']), customerController.searchProductWarranty);
+router.post('/searchProductWarranty', authorization, checkManager(['Agent']), customerController.searchProductWarranty);
 router.get('/', authorization, checkManager(['Agent']), customerController.searchProductBought);
 router.post(
     '/createCustomer',

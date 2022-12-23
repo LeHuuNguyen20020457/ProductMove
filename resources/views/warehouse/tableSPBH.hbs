@@ -1,0 +1,85 @@
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Mã đơn hàng</th>
+                <th>Mã sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Trạng thái sản phẩm</th>
+                <th>Serial/Emei</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each pros}}
+            <tr>
+                <td><i class="fa-solid fa-angles-right rightArrows"></i></td>
+                <td>{{this.MDH}}</td>
+                <td>{{this.productID}}</td>
+                <td>{{this.nameProduct}}</td>
+                <td>{{this.productStatus}}</td>
+                <td>--</td>
+            </tr>
+            <tr style="height: 320px;" class="hiden">
+                <td colspan="6">
+                    <div class="detail__info-product-warranty">
+                        <div class="title"><p>Chi tiết của sản phẩm định bảo hành</p></div>
+                        <div class="content__bill--PW">
+                            <div class="detail-SP">
+                                <div>
+                                    <p>Mã sản phẩm</p>
+                                    <p>{{this.productID}}</p>
+                                </div>
+                                <div>
+                                    <p>Tên sản phẩm</p>
+                                    <p>{{this.nameProduct}}</p>
+                                </div>
+                                <div>
+                                    <p>Serial/Emei: </p>
+                                    <p>--</p>
+                                </div>
+                                <div>
+                                    <p>Số lượng: </p>
+                                    <p>1</p>
+                                </div>
+                            </div>
+                            <div class="detail-KH">
+                                <div>
+                                    <p>Tên khách hàng</p>
+                                    <p>{{this.name}}</p>
+                                </div>
+                                <div>
+                                    <p>Số điện thoại</p>
+                                    <p>{{this.phone}}</p>
+                                </div>
+                                <div>
+                                    <p>Ngày mua: </p>
+                                    <p>{{this.timeToBuy}}</p>
+                                </div>
+                                <div>
+                                    <p>Đại lý bán: </p>
+                                    <p>ABCXYZ</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="time-bh">
+                                <div>
+                                    <p>Thời gian bảo hành</p>
+                                    <p>Thời gian bắt đầu</p>
+                                    <p>Thời gian kết thúc</p>
+                                </div>
+                                <div>
+                                    <p>{{this.warrantyPeriod}} năm</p>
+                                    <p>{{this.timeToBuy}}</p>
+                                    <p>{{this.expirationIime}}</p>
+                                </div>
+                        </div>
+
+                        <div class="btn-WR">
+                            <button>Yêu cầu bảo hành</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
