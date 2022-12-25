@@ -11,6 +11,7 @@ router.get('/sold', authorization, checkManager(['Agent']), agentController.getA
 router.get('/:id', agentController.getAgent);
 router.get('/', agentController.getAllAgent);
 router.post('/createAgent', authorization, checkManager(['Admin']), agentController.createAgent);
+router.post('/billWarranty', authorization, checkManager(['Agent']), agentController.interBillWarranty);
 router.put('/updateAgent/:id', authorization, checkManager(['Admin', 'Agent']), agentController.updateAgent);
 router.delete('/deleteAgent/:id', authorization, checkManager(['Admin']), agentController.deleteAgent);
 module.exports = router;

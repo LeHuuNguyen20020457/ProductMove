@@ -1,0 +1,199 @@
+.bill--warranty{
+    flex: 1;
+    margin-left: 50px;
+    background-color: rgba(81, 94, 123, 0.1);
+    height: 100vh !important;
+    margin-top: -66px;
+
+    .breadscrumb{
+        display: flex;
+        align-items: center;
+        margin: {
+            left: 20px;
+            top: 20px;
+        }
+
+        p{
+            margin-left: 20px;
+        }
+    }
+    .title--bill{
+        h2{
+            margin: {
+                left: 50px;
+                top:20px;
+            };
+        }
+    }
+
+
+    .content--bill{
+        display: flex;
+    }
+
+
+    .content--bill-left{
+        flex: 7;
+
+
+        .content--bill-info-customer{
+            border-radius: 5px;
+            background-color: #fff;
+            width: 90%;
+            margin: auto;
+            > div{
+                display: flex;
+                padding: 10px 0;
+                margin-left: 20px;
+                img{
+                    width: 40px;
+                    height: 40px;
+                    border: 3px solid blue;
+                    border-radius: 40px;
+                }
+               >div{
+                   margin-left: 30px;
+                   font-size: 15px;
+                   p:first-child{
+                       color: blue;
+                   }
+               }
+            }
+        }
+
+
+
+        .content--bill-info-product{
+            border-radius: 5px;
+            background-color: #fff;
+            width: 90%;
+            margin: 10px auto;
+           
+            > div:first-child{
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+                align-items: center;
+
+                p{
+                    border: 1px solid #333;
+                    font-size: 14px;
+                    height: 20px;
+                    text-align: center;
+                }
+            }
+
+
+            >input{
+                width: 90%;
+                padding: 5px;
+                margin: {
+                    top: 10px;
+                    left: 20px;
+                };
+            }
+
+            table{
+                margin-top: 20px;
+                text-align: center;
+                width: 100%;
+                border-spacing: 0;
+
+                input[type="text"] {
+                    width: 50px;
+                }
+
+                tbody td{
+                    padding: 10px;
+                }
+
+                thead th{
+                    border: {
+                        bottom: 1px solid #333;
+                        top: 1px solid #333;
+                    };
+                    
+                    background-color: rgba(0,0,0,0.1);
+                }
+            }
+
+            .content--bill-service{
+                color: blue;
+                display: flex;
+                align-items: center;
+                margin-top: 20px;
+                border-bottom: 1px solid #333;
+                font-size: 14px;
+                p{
+                    margin-left: 10px;
+                }
+            }
+
+            .content--bill-money{
+                padding: 20px 0;
+                font-size: 14px;
+                p{
+                    margin:0 0 0 80% ;
+                }
+            }
+
+        }
+
+    }
+
+    .content--bill-right{
+        flex: 3;
+        > div{
+            background-color: #fff;
+            width: 90%;
+            height: 98%;
+
+            h3{
+                padding: 10px 0;
+            }
+
+            label{
+                display: block;
+                width: 100%;
+            }
+
+            > div{
+                margin-left: 50px;
+                select, input, textarea{
+                    width: 90%;
+                }
+                select, input{
+                    padding: 5px 0;
+                }
+
+                select option{
+                    width: 200px;
+                }
+            }
+
+            > div + div{
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .btn-sumbit-bill{
+        margin-top: 50px;
+    }
+    button{
+        padding: 5px;
+        cursor: pointer;
+        color: #fff;
+        float: right;
+        margin-right: 10px;
+    }
+
+    button:first-child{
+        margin-right: 100px;
+        background-color: red;
+    }
+    button:last-child{
+       
+        background-color: blue;
+    }
+}

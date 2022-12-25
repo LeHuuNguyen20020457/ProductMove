@@ -1,0 +1,120 @@
+.bill--warranty {
+  flex: 1;
+  margin-left: 50px;
+  background-color: rgba(81, 94, 123, 0.1);
+  height: 100vh !important;
+  margin-top: -66px; }
+  .bill--warranty .breadscrumb {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    margin-top: 20px; }
+    .bill--warranty .breadscrumb p {
+      margin-left: 20px; }
+  .bill--warranty .title--bill h2 {
+    margin-left: 50px;
+    margin-top: 20px; }
+  .bill--warranty .content--bill {
+    display: flex; }
+  .bill--warranty .content--bill-left {
+    flex: 7; }
+    .bill--warranty .content--bill-left .content--bill-info-customer {
+      border-radius: 5px;
+      background-color: #fff;
+      width: 90%;
+      margin: auto; }
+      .bill--warranty .content--bill-left .content--bill-info-customer > div {
+        display: flex;
+        padding: 10px 0;
+        margin-left: 20px; }
+        .bill--warranty .content--bill-left .content--bill-info-customer > div img {
+          width: 40px;
+          height: 40px;
+          border: 3px solid blue;
+          border-radius: 40px; }
+        .bill--warranty .content--bill-left .content--bill-info-customer > div > div {
+          margin-left: 30px;
+          font-size: 15px; }
+          .bill--warranty .content--bill-left .content--bill-info-customer > div > div p:first-child {
+            color: blue; }
+    .bill--warranty .content--bill-left .content--bill-info-product {
+      border-radius: 5px;
+      background-color: #fff;
+      width: 90%;
+      margin: 10px auto; }
+      .bill--warranty .content--bill-left .content--bill-info-product > div:first-child {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        align-items: center; }
+        .bill--warranty .content--bill-left .content--bill-info-product > div:first-child p {
+          border: 1px solid #333;
+          font-size: 14px;
+          height: 20px;
+          text-align: center; }
+      .bill--warranty .content--bill-left .content--bill-info-product > input {
+        width: 90%;
+        padding: 5px;
+        margin-top: 10px;
+        margin-left: 20px; }
+      .bill--warranty .content--bill-left .content--bill-info-product table {
+        margin-top: 20px;
+        text-align: center;
+        width: 100%;
+        border-spacing: 0; }
+        .bill--warranty .content--bill-left .content--bill-info-product table input[type="text"] {
+          width: 50px; }
+        .bill--warranty .content--bill-left .content--bill-info-product table tbody td {
+          padding: 10px; }
+        .bill--warranty .content--bill-left .content--bill-info-product table thead th {
+          border-bottom: 1px solid #333;
+          border-top: 1px solid #333;
+          background-color: rgba(0, 0, 0, 0.1); }
+      .bill--warranty .content--bill-left .content--bill-info-product .content--bill-service {
+        color: blue;
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        border-bottom: 1px solid #333;
+        font-size: 14px; }
+        .bill--warranty .content--bill-left .content--bill-info-product .content--bill-service p {
+          margin-left: 10px; }
+      .bill--warranty .content--bill-left .content--bill-info-product .content--bill-money {
+        padding: 20px 0;
+        font-size: 14px; }
+        .bill--warranty .content--bill-left .content--bill-info-product .content--bill-money p {
+          margin: 0 0 0 80%; }
+  .bill--warranty .content--bill-right {
+    flex: 3; }
+    .bill--warranty .content--bill-right > div {
+      background-color: #fff;
+      width: 90%;
+      height: 98%; }
+      .bill--warranty .content--bill-right > div h3 {
+        padding: 10px 0; }
+      .bill--warranty .content--bill-right > div label {
+        display: block;
+        width: 100%; }
+      .bill--warranty .content--bill-right > div > div {
+        margin-left: 50px; }
+        .bill--warranty .content--bill-right > div > div select, .bill--warranty .content--bill-right > div > div input, .bill--warranty .content--bill-right > div > div textarea {
+          width: 90%; }
+        .bill--warranty .content--bill-right > div > div select, .bill--warranty .content--bill-right > div > div input {
+          padding: 5px 0; }
+        .bill--warranty .content--bill-right > div > div select option {
+          width: 200px; }
+      .bill--warranty .content--bill-right > div > div + div {
+        margin-top: 10px; }
+  .bill--warranty .btn-sumbit-bill {
+    margin-top: 50px; }
+  .bill--warranty button {
+    padding: 5px;
+    cursor: pointer;
+    color: #fff;
+    float: right;
+    margin-right: 10px; }
+  .bill--warranty button:first-child {
+    margin-right: 100px;
+    background-color: red; }
+  .bill--warranty button:last-child {
+    background-color: blue; }

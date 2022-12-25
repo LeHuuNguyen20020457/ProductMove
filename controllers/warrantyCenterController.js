@@ -1,5 +1,7 @@
-const { warrantyCenter } = require('../models');
+const { warrantyCenter, sequelize } = require('../models');
 const { Op } = require('sequelize');
+const { QueryTypes } = require('sequelize');
+
 class warrantyCenterController {
     //[GET] /warrantyCenter
     getAllWarrantyCenter(req, res, next) {
@@ -123,5 +125,43 @@ class warrantyCenterController {
                 res.status(500).send(err);
             });
     }
+
+    //[GET] /warrantyCenter/DSBH
+    getDSBH(req, res, next) {
+        const userId = req.userId;
+        
+        warrantyCenter.findOne({
+            where: {
+                managerID: userId,
+            }
+        })
+        .then((WC) => {
+            WC.getSendWarranties({raw: true})
+            .then(async (sendAll) => {
+                
+                for(let i = 0; i < sendAll.length; i++) {
+                    
+                    var nameAgent = await sequelize.query(`SELECT agents.name as nameAgent
+                                                    FROM agents
+                                                    WHERE agents.id = ${sendAll[i].agentID};
+                                                         `,
+                                                        { type: QueryTypes.SELECT, raw:true},);
+                    
+                     sendAll[i].nameAgent = nameAgent[0].nameAgent;
+                }
+                // res.status(200).send(sendAll)
+                res.render('warrantyCenter/DSProductWarranty.hbs', {sendAll, isShow: true})
+            })
+            .catch((err) => {
+                console.log('sai')
+                res.status(500).send(err);
+            });
+        })
+        .catch((err) => {
+            res.status(500).send(err);
+        });
+        // res.render('warrantyCenter/DSProductWarranty.hbs', {isShow: true})
+    }
+
 }
 module.exports = new warrantyCenterController();

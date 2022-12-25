@@ -1,0 +1,98 @@
+
+<div class="bill--warranty">
+    <div class="breadscrumb">
+        <i class="fa-solid fa-chevron-left"></i>
+        <p>Yêu cầu bảo hành</p>
+    </div>
+    <div class="title--bill">
+        <h2>Tạo phiếu yêu cầu bảo hành</h2>
+    </div>
+
+    <div class="content--bill">
+        <div class="content--bill-left">
+            <div class="content--bill-info-customer">
+                <h3>Thông tin khách hàng</h3>
+                <div>
+                    <img src="https://st.quantrimang.com/photos/image/2017/04/08/anh-dai-dien-FB-200.jpg" alt="">
+                   <div>
+                        <p>{{nameCustomer}}</p>
+                        <p>{{phoneCustomer}}</p>
+                   </div>
+                </div>
+            </div>
+
+            <div class="content--bill-info-product">
+                <div>
+                    <h3>Thông tin sản phẩm</h3>
+                    <p>Chọn sản phẩm từ phiếu bảo hành</p>
+                </div>
+                <input type="text" placeholder="Tìm kiếm sản phẩm">
+
+                <table>
+                    <thead>
+                        <th>Mã SKU</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Mã sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Hẹn ngày trả</th>
+                    </thead>
+
+                    <tbody>
+                        <td>{{codeSKU}}</td>
+                        <td>{{nameProduct}}</td>
+                        <td class="productID">{{codeProduct}}</td>
+                        <td><input type="text"></td>
+                        <td><input type="date"></td>
+                    </tbody>
+                </table>
+
+
+                <div class="content--bill-service">
+                    <i class="fa-solid fa-plus"></i>
+                    <p>Thêm dịch vụ khác</p>
+                </div>
+
+                <div  class="content--bill-money">
+                    <p>Tiền cọc:0</p>
+                    <p>Khách cần trả: 0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content--bill-right">
+            <div>
+                <h3>Thông tin phiếu yêu cầu</h3>
+                <div class="">
+                    <label for="">Trung tâm bảo hành</label>
+                    <select name="" id="selectWarrantyCenter">
+                        <option value="">--Chọn trung tâm bảo hành--</option>
+                        {{#each warrantyCenters}}
+                            <option value="{{this.id}}" class="short" data-limit='37'>{{this.name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div>
+                    <label>Nhân viên phụ trách</label>
+                    <input type="text">
+                </div>
+
+                <div>
+                    <label for="">Ghi chú</label>
+                    <textarea name="" id="billWarranty-description" cols="30" rows="3"></textarea>
+                </div>
+
+                <div>
+                    <label for="">TAG</label>
+                    <textarea name="" id="" cols="30" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="btn-sumbit-bill">
+        <button>Huỷ bỏ</button>
+        <button class="btnCreateWarranty">Tạo phiếu yêu cầu bảo hành</button>
+    </div>
+</div>

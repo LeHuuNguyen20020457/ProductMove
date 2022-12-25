@@ -1,4 +1,4 @@
-const { Agent } = require('../models');
+const { Agent, warrantyCenter } = require('../models');
 const { Op } = require('sequelize');
 class agentController {
     //[GET] /agent
@@ -31,7 +31,7 @@ class agentController {
     //[POST] /agent/createAgent
     createAgent(req, res, next) {
         const { name, address, phone, email, managerID } = req.body;
-
+        
         Agent.create({
             name,
             address,
@@ -123,6 +123,27 @@ class agentController {
     //[GET] /agent/warranty/search
     getInterWarranty(req, res, next) {
         res.render('agent/warranty.hbs', {isShow: true})
+    }
+
+    //[POST] agent/billWarranty
+    interBillWarranty(req, res, next) {
+        const {codeProduct, nameProduct, nameCustomer, phoneCustomer, codeSKU} = req.body;
+        
+        warrantyCenter.findAll({raw: true})
+        .then((warrantyCenters) =>{
+            res.render('agent/phieubaohanh.hbs', {
+                warrantyCenters,
+                codeProduct,
+                nameProduct,
+                nameCustomer,
+                phoneCustomer,
+                codeSKU,
+            }, function(err, html){
+                if(err) res.status(500).send()
+                res.status(200).send(html)
+            })
+        })
+        .catch((err) => res.status(500).send(err));
     }
 }
 module.exports = new agentController();

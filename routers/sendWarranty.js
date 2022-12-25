@@ -7,5 +7,6 @@ const { checkManager } = require('../middlewares/checkManager');
 
 router.post('/create', authorization, checkManager(['Agent']), sendWarrantyController.createSendWarranty);
 router.get('/getAll', authorization, checkManager(['Agent']), sendWarrantyController.getAllProductsWarranty);
+router.delete('/delete', authorization, checkManager(['warrantyCenter']), sendWarrantyController.deleteSendWarranty);
 
 module.exports = router;

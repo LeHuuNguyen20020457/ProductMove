@@ -1,0 +1,87 @@
+<div class="ds--product-warranty">
+    <p>Danh sách các sản phẩm đang sửa chữa tại trung tâm: </p>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã SP</th>
+                    <th>Mã Phiếu BH</th>
+                    <th>ĐL gửi BH</th>
+                    <th>Hỏng do</th>
+                    <th>Đã hoàn thành</th>
+                    <th>Không thể sửa</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each sendAll}}
+                <tr>
+                    <td class="productID">{{this.productID}}</td>
+                    <td class="idSW">{{this.id}}</td>
+                    <td>{{this.nameAgent}}</td>
+                    <td>{{this.description}}</td>
+                    <td><button class="btn--finish">Sửa xong</button></td>
+                    <td><button class="btn--err">Lỗi</button></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<script>
+
+    function handleBtnFinish(id, productID) {
+        $.ajax({
+            url: '/sendWarranty/delete',
+            type: 'DELETE',
+            dataType: 'html',
+            data: {
+                id,
+                productID,
+                status: 0,
+            },
+            success: function(result){
+                console.log(result)
+                window.location.reload();
+            }
+        })
+    }
+
+    function handleBtnErr(id, productID){
+        $.ajax({
+                url: '/sendWarranty/delete',
+                type: 'DELETE',
+                dataType: 'html',
+                data: {
+                    id,
+                    productID,
+                    status: 2,
+                },
+                success: function(result){
+                    console.log(result)
+                    window.location.reload();
+                }
+            })
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+        const btnFinish = $('.btn--finish')
+        const btnErr = $('.btn--err')
+        
+        btnFinish.click(function(){
+            var id = $(this).parents('tr').children('td.idSW').text()
+            var productID = $(this).parents('tr').children('td.productID').text()
+            
+            handleBtnFinish(id, productID)
+        })
+
+        btnErr.click(function() {
+            var id = $(this).parents('tr').children('td.idSW').text()
+            var productID = $(this).parents('tr').children('td.productID').text()
+            handleBtnErr(id, productID)
+        })
+    })
+</script>
