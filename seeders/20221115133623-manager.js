@@ -24,7 +24,7 @@ module.exports = {
                 updatedAt: new Date(),
             },
             {
-                username: 'manufactureFactory1',
+                username: 'CSSX1',
                 password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
@@ -34,7 +34,7 @@ module.exports = {
                 updatedAt: new Date(),
             },
             {
-                username: 'manufactureFactory2',
+                username: 'CSSX2',
                 password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
@@ -44,7 +44,7 @@ module.exports = {
                 updatedAt: new Date(),
             },
             {
-                username: 'manufactureFactory3',
+                username: 'CSSX3',
                 password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
@@ -85,7 +85,7 @@ module.exports = {
             },
 
             {
-                username: 'warrantyCenter1',
+                username: 'TTBH1',
                 password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
@@ -95,7 +95,7 @@ module.exports = {
                 updatedAt: new Date(),
             },
             {
-                username: 'warrantyCenter2',
+                username: 'TTBH2',
                 password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',
@@ -105,7 +105,7 @@ module.exports = {
                 updatedAt: new Date(),
             },
             {
-                username: 'warrantyCenter3',
+                username: 'TTBH3',
                 password: 'e10adc3949ba59abbe56e057f20f883e',
                 avatar: 'https://i.pinimg.com/236x/74/28/f9/7428f98c30ae41c9c33d69ab05ed6d0b.jpg',
                 phone: '0976283343',

@@ -14,7 +14,7 @@ module.exports = {
          */
         return await queryInterface.bulkInsert('WarrantyCenters', [
             {
-                name: 'Công ty Honda Thắng Lợi',
+                name: 'Công ty sửa chữa Honda Thắng Lợi',
                 address: '25 Trần Khánh Dư, Hoàn Kiếm, Hà Nội.',
                 phone: '02439342961',
                 email: 'thangloi@gmail.com',

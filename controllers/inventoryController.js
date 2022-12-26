@@ -1,9 +1,10 @@
-const { Inventory , Warehouse, productLine} = require('../models');
+const { Inventory , Warehouse, productLine, Manager, Product, Agent} = require('../models');
 const { Op } = require('sequelize');
 
 class inventoryController {
     //[POST] /inventory/addProductsToWarehouse
     async addProductsToWarehouse(req, res, next) {
+        const userId = req.userId;
         const { warehouseID, codeProductLine, amount } = req.body;
 
         // tìm xem dòng sản phẩm này đã có trong kho chưa
@@ -19,6 +20,32 @@ class inventoryController {
             },
         });
 
+
+        Manager.findOne({
+            where: {
+                id: userId,
+            }
+        })
+        .then(manager => {
+            if(manager.role === 'Agent'){
+                Agent.findOne({
+                    where: {
+                        managerID: manager.id,
+                    }
+                })
+                .then(agent => {
+                    for (let i = 0; i < Number(amount); i++) {
+                        Product.create({
+                            codeProductLine,
+                            AgentID: agent.id,
+                        })
+                    }
+                })
+            }
+        })
+
+
+        
         await inven.set({
             inventoryNumber: +inven.inventoryNumber + Number(amount),
         });

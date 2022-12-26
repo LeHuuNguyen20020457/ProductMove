@@ -1,0 +1,28 @@
+.tksx {
+  flex: 1;
+  margin-left: 50px;
+  margin-left: 100px;
+  margin-top: 50px; }
+  .tksx > h2 {
+    color: red; }
+  .tksx select {
+    width: 100px;
+    padding: 3px;
+    text-align: center; }
+  .tksx .select-Time {
+    margin-top: 10px; }
+  .tksx table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-top: 50px; }
+    .tksx table tr th:first-child,
+    .tksx table tr td:first-child {
+      width: 5%; }
+  .tksx tr {
+    border: 1px solid #d6d2d2; }
+  .tksx thead tr {
+    background-color: #59b8f4; }
+  .tksx tbody td {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500px; }

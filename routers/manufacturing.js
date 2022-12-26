@@ -8,10 +8,18 @@ const { checkManager } = require('../middlewares/checkManager');
 
 router.post('/createManufacturing', manufacturingController.createManufacturing);
 router.get(
-    '/getAll',
+    '/getInterTKSX',
+    authorization,
+    checkManager(['ManufactureFactory']),
+    manufacturingController.getInterTKSX,
+);
+
+router.post(
+    '/tksx',
     authorization,
     checkManager(['ManufactureFactory']),
     manufacturingController.getAllManufacturings,
 );
+
 
 module.exports = router;

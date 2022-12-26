@@ -1,6 +1,8 @@
 const { Customer, Buy, Product, sequelize } = require('../models');
 const { Op } = require('sequelize');
 const { QueryTypes } = require('sequelize');
+const fs = require('fs')
+const readline = require('readline');
 
 class customerController {
     //[GET] /customer/buy
@@ -85,6 +87,106 @@ class customerController {
 
     //[POST] /customer/buy/createCustomer
     // cần phải nhập tên và SDDT khách hàng và mã SP
+    // async createCustomer(req, res, next) {
+        // fs.open('data.txt', 'a', function(err, fd) {
+        //     if (err) {
+        //         return console.error(err);
+        //     }
+        //    console.log("File duoc mo thanh cong!");  
+           
+        //  });
+
+        // const file = readline.createInterface({
+        //     input: fs.createReadStream('./controllers/data.txt'),
+        //     output: process.stdout,
+        //     terminal: false
+        // });
+          
+        // Printing the content of file line by
+        //  line to console by listening on the
+        // line event which will triggered
+        // whenever a new line is read from
+        // the stream
+        
+        // var arrs = [];
+        // var a = 0;
+        // await file.on('line', (line) => {
+        // var arr = line.split(' ')
+        // arrs[a] = arr;
+        // a++;
+        // });
+        // const { name, phone, productID } = req.body;
+//         setTimeout(function() {
+        
+//         for(let i = 0; i < arrs.length; i++){
+
+//         var name = arrs[i][0];
+//         var phone = arrs[i][1];
+//         var productID = Number(arrs[i][2]);
+
+//         //kiểm tra khách hàng đó đã tồn tại chưa nếu chưa thì tạo khách hàng
+//         Customer.findOne({
+//             where: {
+//                 [Op.and]: [{ name: name }, { phone: phone }],
+//             },
+//         })
+//             .then((customer) => {
+//                 if (customer) {
+                   
+                    
+                    
+//                     Buy.create({
+//                         timeToBuy: new Date(),
+//                         customerID: customer.id,
+//                         productID,
+//                     })
+//                         .then((data) => {
+//                             Product.destroy({
+//                                 where: {
+//                                     id: productID,
+//                                 },
+//                             })
+//                                 .then((data) => {
+//                                     // res.render('agent/home.hbs', function (err, html) {
+//                                     //     if(err) res.status(500).send(err)
+//                                     //     res.status(200).send(html);
+//                                     // })
+//                                     i++;
+//                                 })
+//                                 .catch((err) => {
+//                                     res.status(500).send(err);
+//                                 });
+//                         })
+//                         .catch((err) => {
+//                             res.status(500).send(err);
+//                     });
+//                 } else {
+//                     Customer.create({ name, phone })
+//                         .then((cus) => {
+//                             req.buy = {
+//                                 productID: productID,
+//                                 id: cus.id,
+//                             };
+//                             next();
+//                         })
+//                         .catch((err) => {
+//                             res.status(500).send(err);
+//                         });
+//                 }
+//             })
+//             .catch((err) => {
+//                 res.status(500).send(err);
+//             });
+//         // res.send(productID);
+//         }
+// }, 10000)
+//     }
+
+
+
+
+    //[POST] /customer/buy/createCustomer
+    // cần phải nhập tên và SDDT khách hàng và mã SP
     createCustomer(req, res, next) {
         const { name, phone, productID } = req.body;
 
@@ -120,6 +222,8 @@ class customerController {
             });
         // res.send(productID);
     }
+
+    
 }
 
 module.exports = new customerController();

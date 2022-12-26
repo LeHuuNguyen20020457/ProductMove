@@ -12,33 +12,13 @@ module.exports = {
          *   isBetaMember: false
          * }], {});
          */
-        return queryInterface.bulkInsert(
-            'Products',
-            [
-                {
-                    codeProductLine: 'WinnerX150',
-                    AgentID: 1,
-                    deletedAt: null,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                },
-                {
-                    codeProductLine: 'SH125',
-                    AgentID: 1,
-                    deletedAt: null,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                },
-                {
-                    codeProductLine: 'WA110',
-                    AgentID: 2,
-                    deletedAt: null,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                },
-            ],
-            {},
-        );
+        // return queryInterface.bulkInsert(
+        //     'Products',
+        //     [
+                
+        //     ],
+        //     {},
+        // );
     },
 
     async down(queryInterface, Sequelize) {

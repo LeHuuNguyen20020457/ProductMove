@@ -13,47 +13,13 @@ module.exports = {
          * }], {});
          */
 
-        return await queryInterface.bulkInsert(
-            'Inventories',
-            [
-                {
-                    warehouseID: 1,
-                    codeProductLine: 'WinnerX150',
-                    inventoryNumber: 150,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                },
-                {
-                    warehouseID: 1,
-                    codeProductLine: 'SH125',
-                    inventoryNumber: 100,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                },
-                {
-                    warehouseID: 2,
-                    codeProductLine: 'SH125',
-                    inventoryNumber: 150,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                },
-                {
-                    warehouseID: 3,
-                    codeProductLine: 'WA110',
-                    inventoryNumber: 150,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                },
-                {
-                    warehouseID: 4,
-                    codeProductLine: 'WA110',
-                    inventoryNumber: 150,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                },
-            ],
-            {},
-        );
+        // return await queryInterface.bulkInsert(
+        //     'Inventories',
+        //     [
+                
+        //     ],
+        //     {},
+        // );
     },
 
     async down(queryInterface, Sequelize) {

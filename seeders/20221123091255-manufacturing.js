@@ -12,33 +12,13 @@ module.exports = {
          *   isBetaMember: false
          * }], {});
          */
-        await queryInterface.bulkInsert(
-            'manufacturings',
-            [
-                {
-                    manufactureFactoryID: 1,
-                    codeProductLine: 'WinnerX150',
-                    amount: 150,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                },
-                {
-                    manufactureFactoryID: 1,
-                    codeProductLine: 'SH125',
-                    amount: 250,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                },
-                {
-                    manufactureFactoryID: 2,
-                    codeProductLine: 'WA110',
-                    amount: 300,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                },
-            ],
-            {},
-        );
+        // await queryInterface.bulkInsert(
+        //     'manufacturings',
+        //     [
+                
+        //     ],
+        //     {},
+        // );
     },
 
     async down(queryInterface, Sequelize) {

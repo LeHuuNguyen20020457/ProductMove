@@ -1,0 +1,27 @@
+<table>
+    <thead>
+        <tr>
+            {{#if month}}
+                <th>Tháng {{month}}</th>
+            {{/if}}
+            {{#if quarter}}
+                 <th>Quý {{quarter}}</th>
+            {{/if}}
+            <th>Thời gian xuất xưởng</th>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Số lượng SX</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data}}
+            <tr>
+                <td></td>
+                <td>{{this.createdAt}}</td>
+                <td>{{this.codeProductLine}}</td>
+                <td>{{this.nameProductLine}}</td>
+                <td>{{this.amount}}</td>
+            </tr>  
+        {{/each}} 
+    </tbody>
+</table>

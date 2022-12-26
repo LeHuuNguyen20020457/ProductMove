@@ -12,33 +12,13 @@ module.exports = {
          *   isBetaMember: false
          * }], {});
          */
-        return await queryInterface.bulkInsert(
-            'Buys',
-            [
-                {
-                    timeToBuy: '2022-11-17 13:36:23',
-                    productID: 1,
-                    customerID: 1,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                },
-                {
-                    timeToBuy: '2022-11-17 13:36:23',
-                    productID: 2,
-                    customerID: 2,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
-                },
-                // {
-                //     timeToBuy: '2022-11-17 13:36:23',
-                //     productID: 3,
-                //     customerID: 2,
-                //     createdAt: new Date(),
-                //     updatedAt: new Date(),
-                // },
-            ],
-            {},
-        );
+        // return await queryInterface.bulkInsert(
+        //     'Buys',
+        //     [
+               
+        //     ],
+        //     {},
+        // );
     },
 
     async down(queryInterface, Sequelize) {

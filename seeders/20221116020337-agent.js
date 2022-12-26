@@ -23,7 +23,7 @@ module.exports = {
                 updatedAt: new Date(),
             },
             {
-                name: 'Đại lý honda Thủ Đưc',
+                name: 'Đại lý honda Thủ Đức',
                 address: 'quận Thủ Đưc,TP HCM',
                 phone: '0943945433',
                 email: 'hondaCauGiay@gmail.com',
