@@ -15,7 +15,8 @@ const checkManager = (arrType) => (req, res, next) => {
                 res.locals.user = manager
                 next();
             } else {
-                res.status(403).send('Bạn không có quyền truy cập');
+                // res.status(403).send('Bạn không có quyền truy cập');
+                res.render('error/forbidden.hbs')
             }
         })
         .catch((err) => {

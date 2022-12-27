@@ -13,8 +13,9 @@ module.exports = {
      
 
       return part.map((p, index) => {
+        var i = index +1;
         return `<tr>
-        <td>${index}</td>
+        <td>${i}</td>
         <td>${p.name}</td>
         <td>${p.address}</td>
         <td>${p.phone}</td>

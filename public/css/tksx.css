@@ -1,20 +1,50 @@
 .tksx {
   flex: 1;
   margin-left: 50px;
-  margin-left: 100px;
-  margin-top: 50px; }
-  .tksx > h2 {
-    color: red; }
-  .tksx select {
-    width: 100px;
-    padding: 3px;
-    text-align: center; }
-  .tksx .select-Time {
+  margin-left: 100px; }
+  .tksx > div:first-child {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 5px 0; }
+    .tksx > div:first-child h2 {
+      margin-left: 20px; }
+  .tksx .tksx-img {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
     margin-top: 10px; }
+    .tksx .tksx-img img {
+      width: 24%;
+      height: 170px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px 0 #555; }
+  .tksx > h2 {
+    color: red;
+    text-align: center;
+    margin-top: 20px; }
+  .tksx .selectStyleTK {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; }
+    .tksx .selectStyleTK p {
+      font-weight: 600;
+      margin-right: 20px; }
+    .tksx .selectStyleTK select {
+      width: 200px;
+      padding: 3px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.1); }
+  .tksx .select-Time, .tksx .selectMonth, .tksx .selectQuarter {
+    margin-top: 10px;
+    text-align: center; }
+    .tksx .select-Time .selectMonth, .tksx .select-Time .selectQuarter, .tksx .selectMonth .selectMonth, .tksx .selectMonth .selectQuarter, .tksx .selectQuarter .selectMonth, .tksx .selectQuarter .selectQuarter {
+      width: 200px;
+      padding: 3px;
+      background-color: rgba(0, 0, 0, 0.1);
+      margin-left: 100px; }
   .tksx table {
     border-collapse: collapse;
     width: 90%;
-    margin-top: 50px; }
+    margin-top: 30px; }
     .tksx table tr th:first-child,
     .tksx table tr td:first-child {
       width: 5%; }

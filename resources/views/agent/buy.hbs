@@ -18,6 +18,10 @@
                 <input class="code--sp" type="text" name="" id="">
             </div>
             <div class="info--item">
+                <label for="">Tên sản phẩm</label>
+                <input type="text" name="" id="">
+            </div>
+            <div class="info--item">
                 <label for="">Gía bán</label>
                 <input type="text" name="" id="">
             </div>
@@ -38,10 +42,6 @@
                 <input type="text" name="" id="">
             </div>
             <div class="info--item">
-                <label for="">Nhân viên kỹ thuật</label>
-                <input type="text" name="" id="">
-            </div>
-            <div class="info--item">
                 <label for="">Ghi chú</label>
                 <textarea name="" id="" cols="30" rows="3"></textarea>
             </div>
@@ -59,6 +59,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function(){
         $('.save--info-buy').click(function() {
+            if(confirm('Bạn muốn lưu khách hàng này!!!') === true){
             const nameCustomer = $('.name--customer').val();
             const phoneCustomer = $('.phone--customer').val();
             const codeSP = $('.code--sp').val();
@@ -75,6 +76,7 @@
                     $('.buy__info').html(result)
                 }
             })
+            }
         })
     })
 </script>

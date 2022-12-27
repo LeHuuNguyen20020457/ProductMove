@@ -8,33 +8,34 @@
     color: red;
     font-size: 20px;
     font-weight: 700; }
-  .parts button {
-    padding: 5px 10px;
-    min-width: 150px;
+  .parts .parts--btn {
+    display: flex; }
+  .parts .parts--btn > div {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #333;
+    text-align: center;
     border-radius: 10px;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.2); }
-    .parts button:hover {
-      background-color: rgba(0, 0, 0, 0.2);
-      cursor: pointer; }
-    .parts button a {
-      text-decoration: none;
-      font-weight: 500;
-      color: #333;
-      display: inline-block;
-      width: 100%; }
-  .parts div:nth-child(3) {
+    margin-right: 20px;
+    font-weight: 600; }
+    .parts .parts--btn > div:hover {
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.1);
+      color: blue; }
+  .parts .table-DS {
     margin-top: 50px;
     width: 95%; }
-    .parts div:nth-child(3) table {
+    .parts .table-DS table {
       border-collapse: collapse; }
-    .parts div:nth-child(3) tr > th {
+    .parts .table-DS tr > th {
       background-color: rgba(92, 208, 240, 0.7);
       padding: 5px 50px; }
-    .parts div:nth-child(3) tr > td {
+    .parts .table-DS tr > td {
       padding: 15px 50px; }
-    .parts div:nth-child(3) tr:nth-child(even) {
+    .parts .table-DS tr:nth-child(even) {
       background-color: rgba(206, 197, 186, 0.7); }
 
 .clickBtn {
-  background-color: rgba(0, 0, 0, 0.2) !important; }
+  background-color: rgba(0, 0, 0, 0.2); }

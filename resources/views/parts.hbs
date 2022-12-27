@@ -1,13 +1,17 @@
 <div class="parts">
     <p>Danh sách các bộ phận</p>
     <div class = "parts--btn">
-        <button><a href="/parts/all">Tất cả</a></button>
-        <button><a href="/manufactureFactory">Cơ sở sản xuất</a></button>
+        {{!-- <button><a href="/parts/all">Tất cả</a></button> --}}
+        {{!-- <button><a href="/manufactureFactory">Cơ sở sản xuất</a></button>
         <button><a href="/agent">Đại lý</a></button>
-        <button><a href="/warrantyCenter">Trung tâm bảo hành</a></button>
+        <button><a href="/warrantyCenter">Trung tâm bảo hành</a></button> --}}
+        <div class="partsAll clickBtn">Tất cả</div>
+        <div class="manufactureFactoryAll">Cơ sở sản xuất</div>
+        <div class="agentAll">Đại lý</div>
+        <div class="warrantyCenterAll">Trung tâm bảo hành</div>
     </div>
 
-    <div>
+    <div class="table-DS">
         <table>
             <thead>
                 <tr>
@@ -18,13 +22,49 @@
                     <th>Email</th>
                 </tr>
             </thead>
-            <tbody>
-                {{{checkParts partsAll MFs agents warrantyCenters}}}
+            <tbody class="DS-parts">
+                {{{checkParts partsAll}}}
             </tbody>
         </table>
     </div>
 </div>
 
 <script>
-    
+    const divPartsAll = document.querySelector('.partsAll')
+    const divManufactureFactoryAll = document.querySelector('.manufactureFactoryAll')
+    const divAgentAll = document.querySelector('.agentAll')
+    const divWarrantyCenterAll = document.querySelector('.warrantyCenterAll')
+    const tbodyDS = document.querySelector('.DS-parts')
+
+    divPartsAll.onclick = function() {
+        tbodyDS.innerHTML= `{{{checkParts partsAll}}}`
+        divPartsAll.classList.add('clickBtn')
+        divManufactureFactoryAll.classList.remove('clickBtn')
+        divAgentAll.classList.remove('clickBtn')
+        divWarrantyCenterAll.classList.remove('clickBtn')
+    }
+
+    divManufactureFactoryAll.onclick = function() {
+        tbodyDS.innerHTML= `{{{checkParts MFs}}}`
+        divPartsAll.classList.remove('clickBtn')
+        divManufactureFactoryAll.classList.add('clickBtn')
+        divAgentAll.classList.remove('clickBtn')
+        divWarrantyCenterAll.classList.remove('clickBtn')
+    }
+
+    divAgentAll.onclick = function() {
+        tbodyDS.innerHTML= `{{{checkParts agents}}}`
+        divPartsAll.classList.remove('clickBtn')
+        divManufactureFactoryAll.classList.remove('clickBtn')
+        divAgentAll.classList.add('clickBtn')
+        divWarrantyCenterAll.classList.remove('clickBtn')
+    }
+
+    divWarrantyCenterAll.onclick = function() {
+        tbodyDS.innerHTML= `{{{checkParts WCs}}}`
+        divPartsAll.classList.remove('clickBtn')
+        divManufactureFactoryAll.classList.remove('clickBtn')
+        divAgentAll.classList.remove('clickBtn')
+        divWarrantyCenterAll.classList.add('clickBtn')
+    }
 </script>

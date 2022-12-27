@@ -1,0 +1,159 @@
+<div class="chartBuys">
+    <div>Tổng quan</div>
+    <div class="info-different">
+        <div class="info-different-left">
+            <div class="block-item">
+                <div><i class="fa-solid fa-truck-fast"></i></div>
+                <div>
+                    <p>1</p>
+                    <p>Đơn hàng</p>
+                </div>
+            </div>
+            <div class="block-item">
+                <div><i class="fa-solid fa-cart-shopping"></i></div>
+                <div>
+                    <p>630.000</p>
+                    <p>Doanh thu</p>
+                </div>
+            </div>
+            <div class="block-item">
+                <div><i class="fa-solid fa-share"></i></div>
+                <div>
+                    <p>0</p>
+                    <p>Huỷ/Trả bỏ</p>
+                </div>
+            </div>
+            <div class="block-item">
+                <div><i class="fa-solid fa-share-from-square"></i></div>
+                <div>
+                    <p>0</p>
+                    <p>Gía trị trả lại</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-different-right">
+            <div class="block-item">
+                <div><i class="fa-solid fa-money-check-dollar"></i></div>
+                <div>
+                    <p>630.00</p>
+                    <p>Tiền mặt</p>
+                </div>
+            </div>
+            <div class="block-item">
+                <div><i class="fa-brands fa-cc-visa"></i></div>
+                <div>
+                    <p>0</p>
+                    <p>Tài khoản khác</p>
+                </div>
+            </div>
+            <div class="block-item">
+                <div><i class="fa-solid fa-money-bill"></i></div>
+                <div>
+                    <p>0</p>
+                    <p>Ghi nợ</p>
+                </div>
+            </div>
+            <div class="block-item">
+                <div><i class="fa-solid fa-calendar-day"></i></div>
+                <div>
+                    <p>0/30</p>
+                    <p>Bản sử dụng</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-col">
+        <div>
+            <p>Lượng sản phẩm bán được trong năm 2022</p>
+            <select name="" id="" class="selectMonthOrCharter">
+                <option value="1">Theo tháng</option>
+                <option value="2">Theo quý</option>
+            </select>
+        </div>
+        <div class="chart">
+            <ul class="numbers">
+                <li><span>150</span></li>
+                <li><span>100</span></li>
+                <li><span>50</span></li>
+                <li><span>0</span></li>
+            </ul>
+            <ul class="bars">
+                {{#each SlspOfMonth}}
+                    <li>
+                    <div class="bar" data-percentage="{{this.SL}}"></div>
+                    <span>Tháng {{sum @index 1}}</span>
+                    </li>
+                {{/each}}
+            </ul>
+            <canvas id="myChart" style="width: 80%; max-width: 1000px; margin-left: 50px; display: none;"></canvas>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        const selectMonthOrCharter = $('.selectMonthOrCharter')
+        if(selectMonthOrCharter.val() === '1') {
+            $('.bars li .bar').each(function(key, bar) {
+            var percentage= $(this).data('percentage');
+            $(this).animate({
+                height: (percentage/150)*100 + '%'
+            })
+            })
+        }
+
+    selectMonthOrCharter.change(function() {
+        if( $(this).val() ==='1'){
+            $('.chart .numbers').show()
+            $('.chart .bars').show()
+            $('.chart #myChart').hide()
+        }
+        if( $(this).val() ==='2'){
+            $('.chart .numbers').hide()
+            $('.chart .bars').hide()
+            $('.chart #myChart').show()
+        }
+
+    })
+
+
+      var xValues = ['Quý 1', 'Quý 2', 'Quý3', 'Quý 4'];
+      var yValues = [];
+
+      var SLMonth = []
+        $('.bars li .bar').each(function(key, bar) {
+            var percentage= $(this).data('percentage');
+            SLMonth.push(percentage);
+        })
+        
+        for(let i = 0; i< SLMonth.length; i+=3){
+            var qarter = SLMonth[i] + SLMonth[i+1] + SLMonth[i+2]
+            yValues.push(qarter)
+        }
+        console.log(yValues)
+
+      new Chart("myChart", {
+        type: "line",
+        data: {
+          labels: xValues,
+          datasets: [
+            {
+              fill: false,
+              lineTension: 0,
+              backgroundColor: "rgba(0,0,255,1.0)",
+              borderColor: "rgba(0,0,255,0.1)",
+              data: yValues
+            }
+          ]
+        },
+        options: {
+          legend: { display: false },
+          scales: {
+            yAxes: [{ ticks: { min: 0, max: 450 } }]
+          }
+        }
+      });
+    })
+</script>

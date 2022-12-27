@@ -39,7 +39,7 @@
 
     <div class="nav__overlay"></div>
     <nav class="nav__mobile">
-        <div>
+        <div class="avatar-name-moblie">
             <img src="{{user.avatar}}" alt="">
             <h4>{{user.username}}</h4>
         </div>
@@ -49,10 +49,34 @@
 
         {{!-- hoàn thành sau --}}
         <ul class="nav__mobile-list">
-            <li><a href="" class = "nav__mobile-link"></a></li>
-            <li><a href="" class = "nav__mobile-link"></a></li>
-            <li><a href="" class = "nav__mobile-link"></a></li>
-            <li><a href="" class = "nav__mobile-link"></a></li>
+            <li>
+                <i class="fa-solid fa-house"></i>
+                <a href="/" class = "nav__mobile-link">Home</a>
+            </li>
+            <li>
+                <i class="fa-solid fa-layer-group fa-gear-cd"></i>
+                <a href="/parts/all" class = "nav__mobile-link">Các bộ phận</a>
+            </li>
+            <li>
+                <i class="fa-solid fa-warehouse fa-gear-cd"></i>
+                <a href="" class = "nav__mobile-link">Kho của tôi</a>
+            </li>
+            <li>
+                <i class="fa-solid fa-industry fa-gear-cd"></i>
+                <a href="" class = "nav__mobile-link">Cơ sở sản xuất</a>
+            </li>
+            <li>
+                <i class="fa-solid fa-shop fa-gear-cd"></i>
+                <a href="" class = "nav__mobile-link">Đại lý</a>
+            </li>
+            <li>
+                <i class="fa-solid fa-screwdriver-wrench fa-gear-cd"></i>
+                <a href="" class = "nav__mobile-link">Trung tâm bảo hành</a>
+            </li>
+            <li>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <a href="/auth/logout" class = "nav__mobile-link">Logout</a>
+            </li>
         </ul>
     </nav>
 

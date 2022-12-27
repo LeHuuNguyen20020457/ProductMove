@@ -13,6 +13,7 @@ router.get(
     warrantyCenterController.getAllProductsRepaired,
 );
 router.get('/DSBH',authorization,checkManager(['warrantyCenter']), warrantyCenterController.getDSBH);
+router.get('/tkbh',authorization,checkManager(['warrantyCenter']), warrantyCenterController.getInterTKBH);
 router.get('/:id', warrantyCenterController.getWarrantyCenter);
 router.get('/', warrantyCenterController.getAllWarrantyCenter);
 router.post(

@@ -163,5 +163,11 @@ class warrantyCenterController {
         // res.render('warrantyCenter/DSProductWarranty.hbs', {isShow: true})
     }
 
+
+    //[GET] /warrantyCenter/tkbh
+    getInterTKBH(req, res, next){
+        res.render('warrantyCenter/tkbh.hbs', {isShow: true})
+    }
+
 }
 module.exports = new warrantyCenterController();

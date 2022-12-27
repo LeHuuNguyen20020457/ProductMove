@@ -35,6 +35,9 @@ router.get(
 );
 
 
-router.get('/getDetailWarehouse/:id', warehouseController.getDetailWarehouse);
+router.get('/getDetailWarehouse/:id',
+            authorization,
+            checkManager(['ManufactureFactory','Agent', 'warrantyCenter', 'Admin']),
+            warehouseController.getDetailWarehouse);
 
 module.exports = router;

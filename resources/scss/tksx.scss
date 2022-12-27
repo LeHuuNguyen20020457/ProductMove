@@ -1,28 +1,69 @@
 .tksx{
+
     flex: 1;
     margin-left: 50px;
 
     margin-left: 100px;
-    margin-top: 50px;
+
+    > div:first-child{
+        background-color: rgba($color: #000000, $alpha: 0.1);
+        padding: 5px 0;
+        h2{
+            margin-left: 20px;
+        }
+    }
+
+    .tksx-img{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px ;
+        img{
+            width: 24%;
+            height: 170px;
+            border: 1px solid rgba($color: #000000, $alpha: 0.1);
+            box-shadow: 0 0 10px 0 #555;
+        }
+    }
+
+
     >h2{
         color: red;
-    }
-
-    select{
-        width: 100px;
-        padding: 3px;
         text-align: center;
-        
+        margin-top: 20px;
+
+    }
+    .selectStyleTK{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        p{
+            font-weight: 600;
+            margin-right: 20px;
+        }
+        select{
+            width: 200px;
+            padding: 3px;
+            text-align: center;
+            background-color: rgba($color: #000000, $alpha: 0.1);
+        }
     }
 
-    .select-Time {
+    .select-Time, .selectMonth, .selectQuarter{
         margin-top: 10px;
+        text-align: center;
+        .selectMonth, .selectQuarter{
+            width: 200px;
+            padding: 3px;
+            background-color: rgba($color: #000000, $alpha: 0.1);
+            margin-left: 100px;
+        }
     }
 
     table {
         border-collapse: collapse;
         width: 90%;
-        margin-top: 50px;
+        margin-top: 30px;
 
         tr{
             th:first-child,

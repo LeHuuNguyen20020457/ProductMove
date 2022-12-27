@@ -72,16 +72,20 @@
         const btnErr = $('.btn--err')
         
         btnFinish.click(function(){
-            var id = $(this).parents('tr').children('td.idSW').text()
-            var productID = $(this).parents('tr').children('td.productID').text()
-            
-            handleBtnFinish(id, productID)
+            if(confirm('Sản phẩm đã được sửa xong rồi?') === true) {
+                var id = $(this).parents('tr').children('td.idSW').text()
+                var productID = $(this).parents('tr').children('td.productID').text()
+                
+                handleBtnFinish(id, productID)
+            }
         })
 
         btnErr.click(function() {
-            var id = $(this).parents('tr').children('td.idSW').text()
-            var productID = $(this).parents('tr').children('td.productID').text()
-            handleBtnErr(id, productID)
+            if(confirm('Sản phẩm lỗi này sẽ được gửi về cơ sở sản xuất?') === true){
+                var id = $(this).parents('tr').children('td.idSW').text()
+                var productID = $(this).parents('tr').children('td.productID').text()
+                handleBtnErr(id, productID)
+            }
         })
     })
 </script>

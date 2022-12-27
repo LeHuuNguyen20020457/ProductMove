@@ -8,7 +8,9 @@ const { uploadImage } = require('../middlewares/uploadImage');
 const { authorization } = require('../middlewares/authorization');
 const { checkManager } = require('../middlewares/checkManager');
 
-router.get('/productParameter', productLineController.productParameter);
+router.get('/productParameter',authorization,
+checkManager(['ManufactureFactory','Agent', 'warrantyCenter', 'Admin']),
+productLineController.productParameter);
 router.get('/', authorization, checkManager(['Admin', 'Agent', 'ManufactureFactory', 'warrantyCenter']),   productLineController.getAllProductLine);
 router.post(
     '/createProductLine',
