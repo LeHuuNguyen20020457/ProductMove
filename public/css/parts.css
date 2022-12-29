@@ -28,14 +28,81 @@
     margin-top: 50px;
     width: 95%; }
     .parts .table-DS table {
-      border-collapse: collapse; }
+      border-collapse: collapse;
+      display: block;
+      text-align: center;
+      width: 100%; }
     .parts .table-DS tr > th {
       background-color: rgba(92, 208, 240, 0.7);
-      padding: 5px 50px; }
+      padding: 10px 0; }
     .parts .table-DS tr > td {
-      padding: 15px 50px; }
+      padding: 15px; }
     .parts .table-DS tr:nth-child(even) {
       background-color: rgba(206, 197, 186, 0.7); }
+    .parts .table-DS tr th:nth-child(1),
+    .parts .table-DS tr td:nth-child(1) {
+      width: 40px; }
+    .parts .table-DS tr th:nth-child(2),
+    .parts .table-DS tr td:nth-child(2) {
+      width: 392px; }
+    .parts .table-DS tr th:nth-child(3),
+    .parts .table-DS tr td:nth-child(3) {
+      width: 340px; }
+    .parts .table-DS tr th:nth-child(4),
+    .parts .table-DS tr td:nth-child(4) {
+      width: 138px; }
+    .parts .table-DS tr th:nth-child(5),
+    .parts .table-DS tr td:nth-child(5) {
+      width: 254px; }
+
+.parts--mobile {
+  display: none; }
 
 .clickBtn {
   background-color: rgba(0, 0, 0, 0.2); }
+
+@media only screen and (max-width: 1023px) {
+  .parts--mobile {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0; }
+  .parts {
+    display: none; }
+  .parts--mobile .parts--mobile-header {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%; }
+    .parts--mobile .parts--mobile-header p {
+      color: blue;
+      font-weight: 700;
+      margin-left: 10px; }
+  .parts--mobile .select-parts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+    .parts--mobile .select-parts select {
+      border: none; }
+    .parts--mobile .select-parts i {
+      margin-right: 15px; } }
+
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+  .parts--mobile-ds > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px; }
+    .parts--mobile-ds > div h4, .parts--mobile-ds > div p {
+      flex-basis: 50%; }
+    .parts--mobile-ds > div p:last-child {
+      color: blue; } }
+
+@media only screen and (max-width: 739px) {
+  .parts--mobile-ds > div {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px; }
+    .parts--mobile-ds > div p:last-child {
+      color: blue; } }

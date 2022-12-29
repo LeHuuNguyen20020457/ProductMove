@@ -15,4 +15,11 @@ router.post(
     managerController.uploadAvatar,
 );
 
+router.get(
+    '/createTK',
+    authorization,
+    checkManager(['Admin']),
+    managerController.getInterRegister,
+);
+
 module.exports = router;

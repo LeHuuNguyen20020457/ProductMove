@@ -13,6 +13,23 @@
             </a>
         </div>
 
+        {{!-- Chức năng quản lý của Admin --}}
+        {{#if admin}}
+            <div class = "clickUpDown">
+                <a>
+                    <i class="fa-solid fa-people-roof fa-gear-cd"></i>
+                    Quản lý
+                </a>
+                <i class="fa-solid fa-chevron-up icon-up"></i>
+            </div>
+            <div class="nav-down">
+                <ul>
+                    <li><a href="/productLine/create">Dòng sản phẩm mới</a></li>
+                    <li><a href="/manager/createTK">Thêm người dùng</a></li>
+                    
+                </ul>
+            </div>
+        {{/if}}
 
         {{!-- Kho của tôi --}}
         <div class = "clickUpDown">
@@ -108,21 +125,5 @@
 
 </div>
 
-<script>
-    const clickUpDown = document.querySelectorAll('.clickUpDown')
-    const iconUp = document.querySelectorAll('.icon-up')
-    const navDown = document.querySelectorAll('.nav-down')
-    for(let i = 0; i < clickUpDown.length; i++){
-        clickUpDown[i].onclick = function(e) {
-        if(navDown[i].style.display === 'block')
-        {
-            iconUp[i].style.animation = 'rotateUp 0.3s linear forwards'
-            navDown[i].style.display = 'none'
-        }
-        else{
-            iconUp[i].style.animation = 'rotateDown 0.3s linear forwards'
-            navDown[i].style.display = 'block'
-        }
-    }
-    }
-</script>
+<script src="../../js/partials/navigartion.js"></script>
+

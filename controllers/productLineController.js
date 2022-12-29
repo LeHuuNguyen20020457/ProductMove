@@ -80,7 +80,7 @@ class productLineController {
                         fuelConsumption,
                     })
                     .then((data) => {
-                        res.status(201).send('Tạo thành công');
+                       res.redirect('back')
                     })
                     .catch((err) => {
                         res.status(500).send(err);
@@ -89,6 +89,12 @@ class productLineController {
             .catch((err) => {
                 res.status(500).send(err);
             });
+    }
+
+
+    //[GET] /productLine/create
+    getInterCreatePL(req, res, next) {
+        res.render('admin/createPL.hbs', {isShow: true})
     }
 }
 

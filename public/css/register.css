@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
+.register {
+  flex: 1;
+  margin-left: 50px; }
+  .register h1, .register label {
+    color: DodgerBlue; }
+  .register input[type=text], .register input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    width: 100%;
+    resize: vertical;
+    padding: 15px;
+    border-radius: 15px;
+    border: 0;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); }
+  .register input[type=text]:focus, .register input[type=password]:focus, .register select:focus {
+    outline: none; }
+  .register hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px; }
+  .register button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9; }
+  .register button:hover {
+    opacity: 1; }
+  .register .cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336; }
+  .register .signupbtn {
+    float: left;
+    width: 100%;
+    border-radius: 15px;
+    border: 0;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); }
+  .register .container-register {
+    padding: 16px; }
+  .register .clearfix::after {
+    content: "";
+    clear: both;
+    display: table; }
+  .register .select-role {
+    padding: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); }

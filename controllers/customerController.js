@@ -189,7 +189,7 @@ class customerController {
     // cần phải nhập tên và SDDT khách hàng và mã SP
     createCustomer(req, res, next) {
         const { name, phone, productID } = req.body;
-
+        
         //kiểm tra khách hàng đó đã tồn tại chưa nếu chưa thì tạo khách hàng
         Customer.findOne({
             where: {
@@ -197,7 +197,9 @@ class customerController {
             },
         })
             .then((customer) => {
+                
                 if (customer) {
+                    
                     req.buy = {
                         productID: productID,
                         id: customer.id,

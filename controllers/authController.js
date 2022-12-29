@@ -9,31 +9,31 @@ const { client } = require('../helpers/connectRedis');
 dotenv.config();
 
 class authController {
-    //[POST]/register
+    //Đăng ký tài khoản người dùng
+    //[POST] /auth/register
     async register(req, res, next) {
         try {
-            const { username, password, phone, email, role } = req.body;
+            const { username, password, email, role } = req.body;
             const avatar = gravatar.url(email, { s: '100', r: 'x', d: 'retro' }, true);
             await Manager.create({
                 username,
                 password: md5(password),
                 avatar,
-                phone,
                 email,
                 role,
             });
-            res.status(201).send('seccess');
+            res.redirect('back')
         } catch (err) {
             res.status(500).send(err);
         }
     }
 
-    //[GET]
+    //[GET] /auth
     loginApp(req, res, next) {
         res.render('auth/login')
     }
 
-    //[POST]
+    //[POST] /auth/login
     login(req, res, next) {
         try {
             const { username, password } = req.body;
@@ -74,7 +74,8 @@ class authController {
         }
     }
 
-    //[POST]
+    // tạo token mới khi jwt hết hạn
+    //[POST] 
     refreshToken(req, res, next) {
         const refreshToken = req.cookies.refreshToken;
         if (!refreshToken) res.status(401).send('Không tìm thấy token');
@@ -101,7 +102,7 @@ class authController {
         });
     }
 
-    //[GET]
+    //[GET] /auth/logout
     logout(req, res, next) {
         const refreshToken = req.cookies.refreshToken;
 

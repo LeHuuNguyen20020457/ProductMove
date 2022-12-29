@@ -31,6 +31,8 @@ app.set('views', path.join(__dirname, 'resources', 'views'));
 const publicPathDirectory = path.join(__dirname, './public');
 app.use('/public', express.static(publicPathDirectory));
 
+const jsPathDirectory = path.join(__dirname, '/resources')
+app.use(express.static(jsPathDirectory))
 
 router(app);
 

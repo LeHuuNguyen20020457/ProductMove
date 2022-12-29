@@ -1,0 +1,27 @@
+<div class="register">
+    <form action="/auth/register" method="POST">
+        <div class="container-register">
+            <h1>Form Đăng Ký Thêm Người Dùng</h1>
+            <p>Xin hãy nhập biểu mẫu bên dưới để đăng ký.</p>
+            <hr>
+            <label for=""><b>Tên đăng nhập</b></label>
+            <input type="text" placeholder="Nhập tên tài khoản" name="username" required>
+            <label for=""><b>Email</b></label>
+            <input type="text" placeholder="Nhập Email" name="email" required>
+            <label for=""><b>Mật Khẩu</b></label>
+            <input type="password" placeholder="Nhập Mật Khẩu" name="password" required>
+            <label for=""><b>Nhập Lại Mật Khẩu</b></label>
+            <input type="password" placeholder="Nhập Lại Mật Khẩu" name="" required>
+            <label for=""><b>Đăng ký tài khoản cho</b></label>
+            <select name="role" id="" class="select-role">
+                <option value="">Đăng ký tài khoản cho</option>
+                <option value="ManufactureFactory">Quản lý cơ sở sản xuất</option>
+                <option value="Agent">Quản lý đại lý</option>
+                <option value="warrantyCenter">Quản lý trung tâm bảo hành</option>
+            </select>
+            <div class="clearfix">
+            <button type="submit" class="signupbtn">Sign Up</button>
+            </div>
+        </div>
+    </form>
+</div>

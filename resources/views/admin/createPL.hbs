@@ -1,0 +1,59 @@
+<div class="createPL">
+    <div class="createPL-header">
+        <h2>Thêm dòng sản phẩm mới cho công ty</h2>
+    </div>
+    <form method="POST" action="/productLine/createProductLine" enctype="multipart/form-data" name="savePL-form">    
+        <div class="info-PL-left">
+            <div>Nhập thông tin của dòng sản phẩm</div>
+            <div class="input-item">
+                <label for="">Tên dòng sản phẩm:</label>
+                <input type="text" name="nameProductLine" required>
+            </div>
+            <div class="input-item">
+                <label for="">Mã dòng sản phẩm:</label>
+                <input type="text" name="codeProductLine" required>
+            </div>
+            <div class="input-item">
+                <label for="">Ảnh dòng sản phẩm:</label>
+                <input type="file" name="productImage" required>
+            </div>
+            <div class="input-item">
+                <label for="">Mô tả:</label>
+                <textarea name="description" id="" cols="30" rows="2"></textarea>
+            </div>
+            <div class="input-item">
+                <label for="">Gía bán:</label>
+                <input type="text" name="price" required>
+            </div>
+        </div>
+        <div class="info-PL-right">
+            <div>Nhập thông tin kỹ thuật</div>
+            <div class="input-item">
+                <label for="">Thời gian bảo hành</label>
+                <input type="text" name="warrantyPeriod" required>
+            </div>
+            <div class="input-item">
+                <label for="">Trọng lượng xe:</label>
+                <input type="text" name="weight" required>
+            </div>
+            <div class="input-item">
+                <label for="">Dung tích bình xăng</label>
+                <input type="text" name="PetrolTankCapacity" required>
+            </div>
+            <div class="input-item">
+                <label for="">Công suất tối đa</label>
+                <input type="text" name="maximumCapacity" required>
+            </div>
+            <div class="input-item">
+                <label for="">Mức tiêu thụ nguyên liệu</label>
+                <input type="text" name="fuelConsumption" required>
+            </div>
+        </div>
+    </form>
+    <div class="btn-savePL">
+        <button class="luulai">Lưu</button>
+        <button>Huỷ</button>
+    </div>
+</div>
+
+<script src="../../js/admin/createPL.js"></script>

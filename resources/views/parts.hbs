@@ -1,10 +1,6 @@
 <div class="parts">
     <p>Danh sách các bộ phận</p>
     <div class = "parts--btn">
-        {{!-- <button><a href="/parts/all">Tất cả</a></button> --}}
-        {{!-- <button><a href="/manufactureFactory">Cơ sở sản xuất</a></button>
-        <button><a href="/agent">Đại lý</a></button>
-        <button><a href="/warrantyCenter">Trung tâm bảo hành</a></button> --}}
         <div class="partsAll clickBtn">Tất cả</div>
         <div class="manufactureFactoryAll">Cơ sở sản xuất</div>
         <div class="agentAll">Đại lý</div>
@@ -27,7 +23,81 @@
             </tbody>
         </table>
     </div>
+
+    
 </div>
+
+
+
+
+<div class="parts--mobile">
+     <div class="parts--mobile-header">
+         <p>Danh sách các bộ phận</p>
+     </div>
+    <div class="select-parts">
+        <select name="" id="">
+            <option value="">Tất cả các bộ phận</option>
+            <option value="">Cơ sở sản xuất</option>
+            <option value="">Đại lý</option>
+            <option value="">Trung tâm bảo hành</option>
+        </select>
+
+       <div class="icons">
+           <i class="fa-regular fa-bookmark"></i>
+           <i class="fa-solid fa-gear"></i>
+       </div>
+    </div>
+
+    <div class="parts--mobile-ds">
+        {{#each partsAll}}
+        <div>
+            <h4>{{this.name}}</h4>
+            <p>{{this.address}}</p>
+            <p>{{this.phone}}</p>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
     const divPartsAll = document.querySelector('.partsAll')

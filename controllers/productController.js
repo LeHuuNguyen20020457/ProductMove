@@ -11,7 +11,7 @@ class productController {
             },
         })
             .then((data) => {
-                res.render('agent/home.hbs', function (err, html) {
+                res.render('agent/buy.hbs', function (err, html) {
                     if(err) res.status(500).send(err)
                     res.status(200).send(html);
                 })

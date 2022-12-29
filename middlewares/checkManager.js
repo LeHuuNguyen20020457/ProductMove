@@ -12,6 +12,9 @@ const checkManager = (arrType) => (req, res, next) => {
     })
         .then((manager) => {
             if (arrType.includes(manager.role)) {
+                if(manager.role === 'Admin'){
+                    res.locals.admin = 'Admin'
+                }
                 res.locals.user = manager
                 next();
             } else {

@@ -69,7 +69,8 @@ class inventoryController {
                    }
                 }
             })
-            .then(()=> {
+        }
+           
                 const dayMonthYear = dateXuat.split('-')
                 var totalMoneys = 0;
                 for(let i = 0; i < rowsProductXK.length; i++){
@@ -79,6 +80,15 @@ class inventoryController {
                 totalMoneys -= Number(promotionalMoney)
                 totalMoneys += totalMoneys*(Number(tax)/100)
                 
+                // console.log({selectedAgent,
+                //     dayMonthYear,
+                //     typeXuat,
+                //     tax,
+                //     promotionalMoney,
+                //     payments,
+                //     selectedWarehouse,
+                //     rowsProductXK,
+                //     totalMoneys,})
                 res.render('warehouse/phieuxuatkho.hbs', {
                  selectedAgent,
                  dayMonthYear,
@@ -90,15 +100,8 @@ class inventoryController {
                  selectedWarehouse,
                  rowsProductXK,
                  totalMoneys,
-                }, function(err, html) {
-                    if(err) res.status(500).send(err)
-                    res.status(200).send(html)
                 })
-            })
-            .catch(() => {
-                console.log('đã update thất bại')
-            })
-        }
+            
 
     //     console.log('da den day')
     //    res.render('warehouse/phieuxuatkho.hbs')

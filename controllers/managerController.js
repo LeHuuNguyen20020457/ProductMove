@@ -1,6 +1,7 @@
 const { Manager } = require('../models');
 
 class managerController {
+
     async uploadAvatar(req, res, next) {
         try {
             const userId = req.userId;
@@ -21,6 +22,13 @@ class managerController {
             res.status(500).send(err);
         }
     }
+    
+
+    //[GET] /manager/createTK
+    getInterRegister(req, res, next){
+        res.render('admin/register.hbs', {isShow: true})
+    }
+
 }
 
 module.exports = new managerController();
